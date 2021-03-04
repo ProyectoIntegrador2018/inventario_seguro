@@ -19,9 +19,9 @@ Aplicación para brindar seguridad al personal que realiza Inventario de Rollos 
 
 ### Client Details
 
-| Name         | Email                    | Role |
-| ------------ | ------------------------ | ---- |
-| Luis Valdez  | c.lvaldez@ternium.com.mx | CEO  |
+| Name         | Email                    |
+| ------------ | ------------------------ |
+| Luis Valdez  | c.lvaldez@ternium.com.mx |
 
 
 ### Environment URLS
@@ -31,19 +31,19 @@ Aplicación para brindar seguridad al personal que realiza Inventario de Rollos 
 
 ### Da team
 
-| Name           | Email                    | Role           |
-| -------------- | ------------------------ | -------------- |
-| Angel Treviño  | angel.trevinov@gmail.com | Project Admin. |
-| Nombre miembro | prueba@prueba.com        | Development    |
-| Nombre miembro | prueba@prueba.com        | Development    |
-| Nombre miembro | prueba@prueba.com        | Development    |
+| Name           | Email                     | Role                    |
+| -------------- | ------------------------- | ----------------------- |
+| Roger Vazquez  | revazqueztuz@gmail.com    | SCRUM Master and Leader |
+| Angel Treviño  | angel.trevinov@gmail.com  | Project Admin.          |
+| Julia Jimenez  | maggie.jh99@gmail.com     | Product Owner Proxy     |
+| Jorge Ramos    | jorge.ramos1996@gmail.com | Configuration Admin     |
 
 ### Technology Stack
 | Technology    | Version      |
 | ------------- | -------------|
-| Swift         | ##.##.##     |
-| Technology 2  | ##.##.##     |
-| Technology 3  | ##.##.##     |
+| Swift         | 5.2.5        |
+| VisionKit     | 1.1          |
+| Vision        | 1.1          |
 
 ### Management tools
 
