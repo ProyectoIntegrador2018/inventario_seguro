@@ -1,0 +1,592 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		06B11E14260AB031005D4DCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B11E13260AB031005D4DCC /* AppDelegate.swift */; };
+		06B11E16260AB031005D4DCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B11E15260AB031005D4DCC /* SceneDelegate.swift */; };
+		06B11E18260AB031005D4DCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B11E17260AB031005D4DCC /* ViewController.swift */; };
+		06B11E1B260AB031005D4DCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06B11E19260AB031005D4DCC /* Main.storyboard */; };
+		06B11E1D260AB031005D4DCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06B11E1C260AB031005D4DCC /* Assets.xcassets */; };
+		06B11E20260AB031005D4DCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06B11E1E260AB031005D4DCC /* LaunchScreen.storyboard */; };
+		06B11E2B260AB032005D4DCC /* InventarioSeguroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B11E2A260AB032005D4DCC /* InventarioSeguroTests.swift */; };
+		06B11E36260AB032005D4DCC /* InventarioSeguroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B11E35260AB032005D4DCC /* InventarioSeguroUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		06B11E27260AB032005D4DCC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 06B11E08260AB031005D4DCC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 06B11E0F260AB031005D4DCC;
+			remoteInfo = InventarioSeguro;
+		};
+		06B11E32260AB032005D4DCC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 06B11E08260AB031005D4DCC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 06B11E0F260AB031005D4DCC;
+			remoteInfo = InventarioSeguro;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		06B11E10260AB031005D4DCC /* InventarioSeguro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InventarioSeguro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		06B11E13260AB031005D4DCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		06B11E15260AB031005D4DCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		06B11E17260AB031005D4DCC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		06B11E1A260AB031005D4DCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		06B11E1C260AB031005D4DCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		06B11E1F260AB031005D4DCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		06B11E21260AB031005D4DCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06B11E26260AB032005D4DCC /* InventarioSeguroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InventarioSeguroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		06B11E2A260AB032005D4DCC /* InventarioSeguroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventarioSeguroTests.swift; sourceTree = "<group>"; };
+		06B11E2C260AB032005D4DCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06B11E31260AB032005D4DCC /* InventarioSeguroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InventarioSeguroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		06B11E35260AB032005D4DCC /* InventarioSeguroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventarioSeguroUITests.swift; sourceTree = "<group>"; };
+		06B11E37260AB032005D4DCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		06B11E0D260AB031005D4DCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06B11E23260AB032005D4DCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06B11E2E260AB032005D4DCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		06B11E07260AB031005D4DCC = {
+			isa = PBXGroup;
+			children = (
+				06B11E12260AB031005D4DCC /* InventarioSeguro */,
+				06B11E29260AB032005D4DCC /* InventarioSeguroTests */,
+				06B11E34260AB032005D4DCC /* InventarioSeguroUITests */,
+				06B11E11260AB031005D4DCC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		06B11E11260AB031005D4DCC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				06B11E10260AB031005D4DCC /* InventarioSeguro.app */,
+				06B11E26260AB032005D4DCC /* InventarioSeguroTests.xctest */,
+				06B11E31260AB032005D4DCC /* InventarioSeguroUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		06B11E12260AB031005D4DCC /* InventarioSeguro */ = {
+			isa = PBXGroup;
+			children = (
+				06B11E13260AB031005D4DCC /* AppDelegate.swift */,
+				06B11E15260AB031005D4DCC /* SceneDelegate.swift */,
+				06B11E17260AB031005D4DCC /* ViewController.swift */,
+				06B11E19260AB031005D4DCC /* Main.storyboard */,
+				06B11E1C260AB031005D4DCC /* Assets.xcassets */,
+				06B11E1E260AB031005D4DCC /* LaunchScreen.storyboard */,
+				06B11E21260AB031005D4DCC /* Info.plist */,
+			);
+			path = InventarioSeguro;
+			sourceTree = "<group>";
+		};
+		06B11E29260AB032005D4DCC /* InventarioSeguroTests */ = {
+			isa = PBXGroup;
+			children = (
+				06B11E2A260AB032005D4DCC /* InventarioSeguroTests.swift */,
+				06B11E2C260AB032005D4DCC /* Info.plist */,
+			);
+			path = InventarioSeguroTests;
+			sourceTree = "<group>";
+		};
+		06B11E34260AB032005D4DCC /* InventarioSeguroUITests */ = {
+			isa = PBXGroup;
+			children = (
+				06B11E35260AB032005D4DCC /* InventarioSeguroUITests.swift */,
+				06B11E37260AB032005D4DCC /* Info.plist */,
+			);
+			path = InventarioSeguroUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		06B11E0F260AB031005D4DCC /* InventarioSeguro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06B11E3A260AB032005D4DCC /* Build configuration list for PBXNativeTarget "InventarioSeguro" */;
+			buildPhases = (
+				06B11E0C260AB031005D4DCC /* Sources */,
+				06B11E0D260AB031005D4DCC /* Frameworks */,
+				06B11E0E260AB031005D4DCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InventarioSeguro;
+			productName = InventarioSeguro;
+			productReference = 06B11E10260AB031005D4DCC /* InventarioSeguro.app */;
+			productType = "com.apple.product-type.application";
+		};
+		06B11E25260AB032005D4DCC /* InventarioSeguroTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06B11E3D260AB032005D4DCC /* Build configuration list for PBXNativeTarget "InventarioSeguroTests" */;
+			buildPhases = (
+				06B11E22260AB032005D4DCC /* Sources */,
+				06B11E23260AB032005D4DCC /* Frameworks */,
+				06B11E24260AB032005D4DCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				06B11E28260AB032005D4DCC /* PBXTargetDependency */,
+			);
+			name = InventarioSeguroTests;
+			productName = InventarioSeguroTests;
+			productReference = 06B11E26260AB032005D4DCC /* InventarioSeguroTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		06B11E30260AB032005D4DCC /* InventarioSeguroUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06B11E40260AB032005D4DCC /* Build configuration list for PBXNativeTarget "InventarioSeguroUITests" */;
+			buildPhases = (
+				06B11E2D260AB032005D4DCC /* Sources */,
+				06B11E2E260AB032005D4DCC /* Frameworks */,
+				06B11E2F260AB032005D4DCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				06B11E33260AB032005D4DCC /* PBXTargetDependency */,
+			);
+			name = InventarioSeguroUITests;
+			productName = InventarioSeguroUITests;
+			productReference = 06B11E31260AB032005D4DCC /* InventarioSeguroUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		06B11E08260AB031005D4DCC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					06B11E0F260AB031005D4DCC = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					06B11E25260AB032005D4DCC = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 06B11E0F260AB031005D4DCC;
+					};
+					06B11E30260AB032005D4DCC = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 06B11E0F260AB031005D4DCC;
+					};
+				};
+			};
+			buildConfigurationList = 06B11E0B260AB031005D4DCC /* Build configuration list for PBXProject "InventarioSeguro" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 06B11E07260AB031005D4DCC;
+			productRefGroup = 06B11E11260AB031005D4DCC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				06B11E0F260AB031005D4DCC /* InventarioSeguro */,
+				06B11E25260AB032005D4DCC /* InventarioSeguroTests */,
+				06B11E30260AB032005D4DCC /* InventarioSeguroUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		06B11E0E260AB031005D4DCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06B11E20260AB031005D4DCC /* LaunchScreen.storyboard in Resources */,
+				06B11E1D260AB031005D4DCC /* Assets.xcassets in Resources */,
+				06B11E1B260AB031005D4DCC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06B11E24260AB032005D4DCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06B11E2F260AB032005D4DCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		06B11E0C260AB031005D4DCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06B11E18260AB031005D4DCC /* ViewController.swift in Sources */,
+				06B11E14260AB031005D4DCC /* AppDelegate.swift in Sources */,
+				06B11E16260AB031005D4DCC /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06B11E22260AB032005D4DCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06B11E2B260AB032005D4DCC /* InventarioSeguroTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06B11E2D260AB032005D4DCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06B11E36260AB032005D4DCC /* InventarioSeguroUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		06B11E28260AB032005D4DCC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 06B11E0F260AB031005D4DCC /* InventarioSeguro */;
+			targetProxy = 06B11E27260AB032005D4DCC /* PBXContainerItemProxy */;
+		};
+		06B11E33260AB032005D4DCC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 06B11E0F260AB031005D4DCC /* InventarioSeguro */;
+			targetProxy = 06B11E32260AB032005D4DCC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		06B11E19260AB031005D4DCC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06B11E1A260AB031005D4DCC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		06B11E1E260AB031005D4DCC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06B11E1F260AB031005D4DCC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		06B11E38260AB032005D4DCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		06B11E39260AB032005D4DCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		06B11E3B260AB032005D4DCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = InventarioSeguro/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = rogerVazquez.InventarioSeguro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		06B11E3C260AB032005D4DCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = InventarioSeguro/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = rogerVazquez.InventarioSeguro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		06B11E3E260AB032005D4DCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = InventarioSeguroTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = rogerVazquez.InventarioSeguroTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InventarioSeguro.app/InventarioSeguro";
+			};
+			name = Debug;
+		};
+		06B11E3F260AB032005D4DCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = InventarioSeguroTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = rogerVazquez.InventarioSeguroTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InventarioSeguro.app/InventarioSeguro";
+			};
+			name = Release;
+		};
+		06B11E41260AB032005D4DCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = InventarioSeguroUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = rogerVazquez.InventarioSeguroUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = InventarioSeguro;
+			};
+			name = Debug;
+		};
+		06B11E42260AB032005D4DCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = InventarioSeguroUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = rogerVazquez.InventarioSeguroUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = InventarioSeguro;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		06B11E0B260AB031005D4DCC /* Build configuration list for PBXProject "InventarioSeguro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06B11E38260AB032005D4DCC /* Debug */,
+				06B11E39260AB032005D4DCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06B11E3A260AB032005D4DCC /* Build configuration list for PBXNativeTarget "InventarioSeguro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06B11E3B260AB032005D4DCC /* Debug */,
+				06B11E3C260AB032005D4DCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06B11E3D260AB032005D4DCC /* Build configuration list for PBXNativeTarget "InventarioSeguroTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06B11E3E260AB032005D4DCC /* Debug */,
+				06B11E3F260AB032005D4DCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06B11E40260AB032005D4DCC /* Build configuration list for PBXNativeTarget "InventarioSeguroUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06B11E41260AB032005D4DCC /* Debug */,
+				06B11E42260AB032005D4DCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 06B11E08260AB031005D4DCC /* Project object */;
+}
