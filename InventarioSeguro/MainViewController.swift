@@ -7,9 +7,7 @@ import VisionKit
  ---
  
  - Authors:
-    Roger Vazquez
- 
-    Angel Treviño
+    Roger Vazquez, Angel Treviño
 
  - Date: 23/02/21
  */
