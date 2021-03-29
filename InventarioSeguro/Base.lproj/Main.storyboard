@@ -16,18 +16,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xpb-0i-EgD">
-                                <rect key="frame" x="99" y="1120" width="139" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="xpb-0i-EgD">
+                                <rect key="frame" x="180" y="1028" width="268" height="118"/>
+                                <color key="backgroundColor" red="0.93725490196078431" green="0.34901960784313724" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="btnRegistrarImg"/>
-                                <state key="normal" title="Registro por Imagen"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xpb-0i-EgD" secondAttribute="height" multiplier="25:11" id="HDZ-lL-1pf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansOriya-Bold" family="Noto Sans Oriya" pointSize="30"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Registro por Imagen">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="scanFromCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6fs-fu-edw"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="y1D-UV-sjw">
+                                <rect key="frame" x="576" y="1028" width="268" height="118"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.34901960780000002" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="y1D-UV-sjw" secondAttribute="height" multiplier="134:59" id="VBQ-wx-vm2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NotoSansOriya-Bold" family="Noto Sans Oriya" pointSize="30"/>
+                                <state key="normal" title="Registro por Codigo">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="y1D-UV-sjw" secondAttribute="trailing" constant="180" id="3S9-cg-5eA"/>
+                            <constraint firstItem="xpb-0i-EgD" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="1028" id="A6Q-vv-BTT"/>
+                            <constraint firstItem="xpb-0i-EgD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="180" id="Fbb-If-zzF"/>
+                            <constraint firstItem="y1D-UV-sjw" firstAttribute="baseline" secondItem="xpb-0i-EgD" secondAttribute="baseline" id="R57-fF-2dF"/>
+                            <constraint firstItem="y1D-UV-sjw" firstAttribute="firstBaseline" secondItem="xpb-0i-EgD" secondAttribute="firstBaseline" id="RcK-ht-v5q"/>
+                            <constraint firstItem="y1D-UV-sjw" firstAttribute="top" secondItem="xpb-0i-EgD" secondAttribute="top" id="qwS-T0-4TY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xpb-0i-EgD" secondAttribute="bottom" constant="200" id="y2J-7c-fWc"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
