@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UyH-lH-72F">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,53 +13,72 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="InventarioSeguro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="xpb-0i-EgD">
-                                <rect key="frame" x="180" y="1028" width="268" height="118"/>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.34901960784313724" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="btnRegistrarImg"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="xpb-0i-EgD" secondAttribute="height" multiplier="25:11" id="HDZ-lL-1pf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="NotoSansOriya-Bold" family="Noto Sans Oriya" pointSize="30"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Registro por Imagen">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="scanFromCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6fs-fu-edw"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="y1D-UV-sjw">
-                                <rect key="frame" x="576" y="1028" width="268" height="118"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.34901960780000002" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="y1D-UV-sjw" secondAttribute="height" multiplier="134:59" id="VBQ-wx-vm2"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="NotoSansOriya-Bold" family="Noto Sans Oriya" pointSize="30"/>
-                                <state key="normal" title="Registro por Codigo">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="y1D-UV-sjw" secondAttribute="trailing" constant="180" id="3S9-cg-5eA"/>
-                            <constraint firstItem="xpb-0i-EgD" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="1028" id="A6Q-vv-BTT"/>
-                            <constraint firstItem="xpb-0i-EgD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="180" id="Fbb-If-zzF"/>
-                            <constraint firstItem="y1D-UV-sjw" firstAttribute="baseline" secondItem="xpb-0i-EgD" secondAttribute="baseline" id="R57-fF-2dF"/>
-                            <constraint firstItem="y1D-UV-sjw" firstAttribute="firstBaseline" secondItem="xpb-0i-EgD" secondAttribute="firstBaseline" id="RcK-ht-v5q"/>
-                            <constraint firstItem="y1D-UV-sjw" firstAttribute="top" secondItem="xpb-0i-EgD" secondAttribute="top" id="qwS-T0-4TY"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xpb-0i-EgD" secondAttribute="bottom" constant="200" id="y2J-7c-fWc"/>
-                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Dyf-9G-DVo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="141.796875" y="89.604685212298676"/>
+            <point key="canvasLocation" x="-194" y="42"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wuc-WX-kjk">
+            <objects>
+                <navigationController id="UyH-lH-72F" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CJF-iJ-9zG">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UL6-5E-ePr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fzx-vQ-qqz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-980" y="42"/>
+        </scene>
+        <!--Mostrar Resultados View Controller-->
+        <scene sceneID="qTY-A9-9bt">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="frL-by-WUA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="resultados" id="GiL-hb-pwM" customClass="mostrarResultadosViewController" customModule="InventarioSeguro" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gw0-1L-GVI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="hola" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uul-1O-Rip">
+                                <rect key="frame" x="159" y="387" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lRf-Ht-3iV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ml8-ZV-xE8"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-194" y="714"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qOR-lG-cnT">
+            <objects>
+                <navigationController id="8SD-vY-52i" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Fi-37-gMG">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="GiL-hb-pwM" kind="relationship" relationship="rootViewController" id="LGy-Yc-w7Z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BQS-cV-Xdh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-981" y="728"/>
         </scene>
     </scenes>
     <resources>
