@@ -11,59 +11,27 @@ import VisionKit
 
 class ViewController: UIViewController {
     
-    private var scanButton = ScanButton(frame: .zero)
-    private var scanImageView = ScanImageView(frame: .zero)
-    private var ocrTextView = OcrTextView(frame: .zero, textContainer: nil)
+    @IBOutlet weak var botonGuardar: UIButton!
+    @IBOutlet weak var botonScan: UIButton!
+    @IBOutlet weak var textViewResultado: UITextView!
+    @IBOutlet weak var imageViewImagen: UIImageView!
+    
     private var ocrRequest = VNRecognizeTextRequest(completionHandler: nil)
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        configure()
+        addDoneBtn()
         configureOCR()
     }
-
     
-    private func configure() {
-        view.addSubview(scanImageView)
-        view.addSubview(ocrTextView)
-            view.addSubview(scanButton)
-        
-        let padding: CGFloat = 16
-        NSLayoutConstraint.activate([
-            scanButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: padding),
-            scanButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -padding),
-            scanButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding),
-            scanButton.heightAnchor.constraint(equalToConstant: 50),
-            
-            ocrTextView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: padding),
-            ocrTextView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -padding),
-            ocrTextView.bottomAnchor.constraint(equalTo: scanButton.topAnchor, constant: -padding),
-            ocrTextView.heightAnchor.constraint(equalToConstant: 200),
-            
-            scanImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: padding),
-            scanImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: padding),
-            scanImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -padding),
-            scanImageView.bottomAnchor.constraint(equalTo: ocrTextView.topAnchor, constant: -padding)
-        ])
-        
-        scanButton.addTarget(self, action: #selector(scanDocument), for: .touchUpInside)
-    }
-    
-    
-    @objc private func scanDocument() {
-        let scanVC = VNDocumentCameraViewController()
-        scanVC.delegate = self
-        present(scanVC, animated: true)
-    }
-    
+ 
     
     private func processImage(_ image: UIImage) {
         guard let cgImage = image.cgImage else { return }
 
-        ocrTextView.text = ""
-        scanButton.isEnabled = false
+        textViewResultado.text = ""
+        botonScan.isEnabled = false
         
         let requestHandler = VNImageRequestHandler(cgImage: cgImage, options: [:])
         do {
@@ -87,14 +55,36 @@ class ViewController: UIViewController {
             
             
             DispatchQueue.main.async {
-                self.ocrTextView.text = ocrText
-                self.scanButton.isEnabled = true
+                self.textViewResultado.text = ocrText
+                self.botonScan.isEnabled = true
             }
         }
         
         ocrRequest.recognitionLevel = .accurate
         ocrRequest.recognitionLanguages = ["en-US", "en-GB"]
         ocrRequest.usesLanguageCorrection = true
+    }
+    
+    @IBAction func escanarButtonPressed(_ sender: Any) {
+        let scanVC = VNDocumentCameraViewController()
+        scanVC.delegate = self
+        present(scanVC, animated: true)
+    }
+    
+    @IBAction func guardarButtonPressed(_ sender: Any) {
+    }
+    func addDoneBtn()
+    {
+        let toolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0,  width: self.view.frame.size.width, height: 30))
+                let flexSpace = UIBarButtonItem(barButtonSystemItem:    .flexibleSpace, target: nil, action: nil)
+                let doneBtn: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(dismissMyKeyboard))
+                toolbar.setItems([flexSpace, doneBtn], animated: false)
+                toolbar.sizeToFit()
+                self.textViewResultado.inputAccessoryView = toolbar
+    }
+    @objc func dismissMyKeyboard()
+    {
+        view.endEditing(true)
     }
 }
 
@@ -106,7 +96,7 @@ extension ViewController: VNDocumentCameraViewControllerDelegate {
             return
         }
         
-        scanImageView.image = scan.imageOfPage(at: 0)
+        imageViewImagen.image = scan.imageOfPage(at: 0)
         processImage(scan.imageOfPage(at: 0))
         controller.dismiss(animated: true)
     }
@@ -119,6 +109,7 @@ extension ViewController: VNDocumentCameraViewControllerDelegate {
     func documentCameraViewControllerDidCancel(_ controller: VNDocumentCameraViewController) {
         controller.dismiss(animated: true)
     }
+    
 }
 
 
