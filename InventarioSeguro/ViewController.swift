@@ -1,9 +1,9 @@
-//
-//  ViewController.swift
-//  InventarioSeguro
-//
-//  Created by Roger Eduardo Vazquez Tuz on 23/03/21.
-//
+/**
+ ViewController.swift
+ InventarioSeguro
+  - Authors:
+ Roger Vazquez, Jorge Ramos, Angel Treviño, Julia Jimenez
+*/
 
 import UIKit
 // Librerias para el reconocimiento de imagen
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         configureOCR()
     }
     // MARK: - Funcionalidad y settings
-    // Fuunción para el procesamiento de la imagen
+    // Función para el procesamiento de la imagen
     private func processImage(_ image: UIImage) {
         guard let cgImage = image.cgImage else { return }
 
