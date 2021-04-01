@@ -12,9 +12,8 @@ import VisionKit
 
 class ViewController: UIViewController {
     // MARK: - Variables y Outlets
-    //Botón de Guardar
+   
     @IBOutlet weak var botonGuardar: UIButton!
-    //Botón de Scan
     @IBOutlet weak var botonScan: UIButton!
     //Resultado del recononocimiento de la imagen
     @IBOutlet weak var textViewResultado: UITextView!
@@ -75,7 +74,7 @@ class ViewController: UIViewController {
     }
     // MARK: - Botones
     /// Accion que se toma al presionar el boton de escanear
-    @IBAction func escanarButtonPressed(_ sender: Any) {
+    @IBAction func escanarButtonPressed(_ sender: UIButton) {
         // View predeterminada de ios de la camara
         let scanVC = VNDocumentCameraViewController()
         scanVC.delegate = self

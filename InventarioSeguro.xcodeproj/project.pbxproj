@@ -107,8 +107,8 @@
 				06B11E1C260AB031005D4DCC /* Assets.xcassets */,
 				06B11E1E260AB031005D4DCC /* LaunchScreen.storyboard */,
 				06B11E21260AB031005D4DCC /* Info.plist */,
-				C1A1437F2613D84C00B8EBC7 /* mostrarResultadosViewController.swift */,
 				364BAE4E2615551900A9504A /* ViewController.swift */,
+				C1A1437F2613D84C00B8EBC7 /* mostrarResultadosViewController.swift */,
 			);
 			path = InventarioSeguro;
 			sourceTree = "<group>";
