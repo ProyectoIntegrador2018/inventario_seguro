@@ -11,7 +11,6 @@
         <!--View Controller-->
         <scene sceneID="SzY-bV-JDM">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FEU-JT-MOO" sceneMemberID="firstResponder"/>
                 <viewController id="Dl4-5t-vza" customClass="ViewController" customModule="InventarioSeguro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DfU-aG-sfS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -22,6 +21,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ir0-c0-qIC">
                                 <rect key="frame" x="24" y="754" width="126" height="51"/>
+                                <accessibility key="accessibilityConfiguration" identifier="botonGuardar"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="126" id="CRX-wz-AK2"/>
                                     <constraint firstAttribute="height" constant="51" id="m3c-09-7qs"/>
@@ -78,6 +78,7 @@
                         <outlet property="textViewResultado" destination="uvl-ZE-QBh" id="6nf-MG-VHk"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FEU-JT-MOO" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-851" y="134"/>
         </scene>
