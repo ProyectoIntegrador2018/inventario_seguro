@@ -82,7 +82,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func guardarButtonPressed(_ sender: Any) {
-        /// Aqui realizar un segue y enviar el dato de text view resultado a la siguente vista
+        /// TODO: Aqui realizar un segue y enviar el dato de text view resultado a la siguente vista
         
     }
     // Agrega el boton de done al teclado cuando se quiere editar el resultado
@@ -95,6 +95,7 @@ class ViewController: UIViewController {
                 toolbar.sizeToFit()
                 self.textViewResultado.inputAccessoryView = toolbar
     }
+    
     // Función para terminar el uso del teclado
     @objc func dismissMyKeyboard()
     {
