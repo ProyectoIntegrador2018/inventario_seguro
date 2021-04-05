@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		06B11E14260AB031005D4DCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B11E13260AB031005D4DCC /* AppDelegate.swift */; };
 		06B11E16260AB031005D4DCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B11E15260AB031005D4DCC /* SceneDelegate.swift */; };
-		06B11E18260AB031005D4DCC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B11E17260AB031005D4DCC /* MainViewController.swift */; };
 		06B11E1B260AB031005D4DCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06B11E19260AB031005D4DCC /* Main.storyboard */; };
 		06B11E1D260AB031005D4DCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06B11E1C260AB031005D4DCC /* Assets.xcassets */; };
 		06B11E20260AB031005D4DCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06B11E1E260AB031005D4DCC /* LaunchScreen.storyboard */; };
 		06B11E2B260AB032005D4DCC /* InventarioSeguroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B11E2A260AB032005D4DCC /* InventarioSeguroTests.swift */; };
 		06B11E36260AB032005D4DCC /* InventarioSeguroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B11E35260AB032005D4DCC /* InventarioSeguroUITests.swift */; };
+		364BAE4F2615551900A9504A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364BAE4E2615551900A9504A /* ViewController.swift */; };
+		C1A143802613D84C00B8EBC7 /* mostrarResultadosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A1437F2613D84C00B8EBC7 /* mostrarResultadosViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,6 @@
 		06B11E10260AB031005D4DCC /* InventarioSeguro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InventarioSeguro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B11E13260AB031005D4DCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06B11E15260AB031005D4DCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		06B11E17260AB031005D4DCC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		06B11E1A260AB031005D4DCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		06B11E1C260AB031005D4DCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		06B11E1F260AB031005D4DCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +49,8 @@
 		06B11E31260AB032005D4DCC /* InventarioSeguroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InventarioSeguroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B11E35260AB032005D4DCC /* InventarioSeguroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventarioSeguroUITests.swift; sourceTree = "<group>"; };
 		06B11E37260AB032005D4DCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		364BAE4E2615551900A9504A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C1A1437F2613D84C00B8EBC7 /* mostrarResultadosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mostrarResultadosViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +103,12 @@
 			children = (
 				06B11E13260AB031005D4DCC /* AppDelegate.swift */,
 				06B11E15260AB031005D4DCC /* SceneDelegate.swift */,
-				06B11E17260AB031005D4DCC /* MainViewController.swift */,
 				06B11E19260AB031005D4DCC /* Main.storyboard */,
 				06B11E1C260AB031005D4DCC /* Assets.xcassets */,
 				06B11E1E260AB031005D4DCC /* LaunchScreen.storyboard */,
 				06B11E21260AB031005D4DCC /* Info.plist */,
+				364BAE4E2615551900A9504A /* ViewController.swift */,
+				C1A1437F2613D84C00B8EBC7 /* mostrarResultadosViewController.swift */,
 			);
 			path = InventarioSeguro;
 			sourceTree = "<group>";
@@ -258,8 +261,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06B11E18260AB031005D4DCC /* MainViewController.swift in Sources */,
 				06B11E14260AB031005D4DCC /* AppDelegate.swift in Sources */,
+				C1A143802613D84C00B8EBC7 /* mostrarResultadosViewController.swift in Sources */,
+				364BAE4F2615551900A9504A /* ViewController.swift in Sources */,
 				06B11E16260AB031005D4DCC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,7 +447,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = rogerVazquez.InventarioSeguro;
+				PRODUCT_BUNDLE_IDENTIFIER = AngelTrevinov.InventarioSeguro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -462,7 +466,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = rogerVazquez.InventarioSeguro;
+				PRODUCT_BUNDLE_IDENTIFIER = AngelTrevinov.InventarioSeguro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -475,6 +479,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WMJFD249HA;
 				INFOPLIST_FILE = InventarioSeguroTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -496,6 +501,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WMJFD249HA;
 				INFOPLIST_FILE = InventarioSeguroTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -516,6 +522,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WMJFD249HA;
 				INFOPLIST_FILE = InventarioSeguroUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -535,6 +542,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WMJFD249HA;
 				INFOPLIST_FILE = InventarioSeguroUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
