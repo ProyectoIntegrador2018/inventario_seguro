@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="SzY-bV-JDM">
             <objects>
-                <viewController id="Dl4-5t-vza" customClass="ViewController" customModule="InventarioSeguro" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="Dl4-5t-vza" customClass="ViewController" customModule="InventarioSeguro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DfU-aG-sfS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,7 +48,7 @@
                                 </constraints>
                                 <state key="normal" title="Guardar"/>
                                 <connections>
-                                    <segue destination="TeY-23-vJB" kind="presentation" id="z8C-gU-WU8"/>
+                                    <segue destination="TeY-23-vJB" kind="presentation" identifier="mostrarResultadoSegue" id="z8C-gU-WU8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -85,7 +85,7 @@
         <!--Mostrar Resultados View Controller-->
         <scene sceneID="e72-3K-FEA">
             <objects>
-                <viewController id="TeY-23-vJB" customClass="mostrarResultadosViewController" customModule="InventarioSeguro" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mostrarResultadosVC" id="TeY-23-vJB" customClass="mostrarResultadosViewController" customModule="InventarioSeguro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XdK-1f-dKy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7M3-ru-cdd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-97.101449275362327" y="138.61607142857142"/>
+            <point key="canvasLocation" x="-72" y="139"/>
         </scene>
     </scenes>
     <resources>
