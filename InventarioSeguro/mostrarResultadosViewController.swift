@@ -25,19 +25,15 @@ class mostrarResultadosViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    //dismiss, eliminar en futuras versiones.
-    //Deberíamos ejecutar dismiss hasta que el registro esté guardado en la DB (u ocurra una excepción)
+    /**
+     dismiss, eliminar en futuras versiones.
+     
+     TODO: Deberíamos ejecutar dismiss hasta que el registro esté guardado en la DB (u ocurra una excepción)
+     */
     @IBAction func dismissBtnTapped(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)
     }
-    
-    // Función para terminar el uso del teclado
-   
-
-    
-    
     
     /*
     // MARK: - Navigation

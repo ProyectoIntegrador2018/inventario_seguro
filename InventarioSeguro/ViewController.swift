@@ -83,6 +83,7 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        // TODO: prevenir que este segue se realize si scannedOCR esta vacio
         let scannedOCR = self.textViewResultado.text ?? ""
         let destinationVC = segue.destination as! mostrarResultadosViewController
         
