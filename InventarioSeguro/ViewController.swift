@@ -81,10 +81,21 @@ class ViewController: UIViewController {
         present(scanVC, animated: true)
     }
     
-    @IBAction func guardarButtonPressed(_ sender: Any) {
-        /// TODO: Aqui realizar un segue y enviar el dato de text view resultado a la siguente vista
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // TODO: prevenir que este segue se realize si scannedOCR esta vacio
+        let scannedOCR = self.textViewResultado?.text ?? ""
+        let destinationVC = segue.destination as! mostrarResultadosViewController
+        
+        destinationVC.capturedText = scannedOCR
+        
+        
         
     }
+    
+    
+    
+
     // Agrega el boton de done al teclado cuando se quiere editar el resultado
     func addDoneBtn()
     {

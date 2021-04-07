@@ -103,6 +103,42 @@ class InventarioSeguroUITests: XCTestCase {
         }
                 
     }
+    
+    /**
+     Method that tests the ui components that allow the segue to be perform exists
+     */
+    func testShowScanningResultsSegue() {
+        
+        
+        let guardarSegue = app/*@START_MENU_TOKEN@*/.staticTexts["Guardar"]/*[[".buttons[\"Guardar\"].staticTexts[\"Guardar\"]",".buttons[\"botonGuardar\"].staticTexts[\"Guardar\"]",".staticTexts[\"Guardar\"]"],[[[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        
+        
+        let element = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element
+        let locationInput = element.children(matching: .textField).element(boundBy: 1)
+        
+        let btnGuardar = app/*@START_MENU_TOKEN@*/.staticTexts["Guardar"]/*[[".buttons[\"Guardar\"].staticTexts[\"Guardar\"]",".staticTexts[\"Guardar\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        
+        if guardarSegue.isSelected {
+            
+            guardarSegue.tap()
+            
+            XCTAssertTrue(element.exists)
+            XCTAssertFalse(element.exists)
+            
+            XCTAssertTrue(locationInput.exists)
+            XCTAssertFalse(locationInput.exists)
+            
+            element.tap()
+            
+            XCTAssertTrue(btnGuardar.exists)
+            XCTAssertFalse(btnGuardar.exists)
+            btnGuardar.tap()
+            
+            XCTAssertTrue(guardarSegue.exists)
+            XCTAssertFalse(guardarSegue.exists)
+        }
+        
+    }
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
