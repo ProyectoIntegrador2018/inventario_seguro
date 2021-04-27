@@ -14,6 +14,8 @@
 		06B11E20260AB031005D4DCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06B11E1E260AB031005D4DCC /* LaunchScreen.storyboard */; };
 		06B11E2B260AB032005D4DCC /* InventarioSeguroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B11E2A260AB032005D4DCC /* InventarioSeguroTests.swift */; };
 		06B11E36260AB032005D4DCC /* InventarioSeguroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B11E35260AB032005D4DCC /* InventarioSeguroUITests.swift */; };
+		363CCE012638A6E3006959E9 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363CCE002638A6E3006959E9 /* Usuario.swift */; };
+		363CCE062638A7E3006959E9 /* DBUsuarioHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363CCE052638A7E3006959E9 /* DBUsuarioHelper.swift */; };
 		364BAE4F2615551900A9504A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364BAE4E2615551900A9504A /* ViewController.swift */; };
 		36CF8012263796C1008C037F /* Rollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF8011263796C1008C037F /* Rollo.swift */; };
 		36CF8017263797AE008C037F /* DBRolloHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF8016263797AE008C037F /* DBRolloHelper.swift */; };
@@ -51,6 +53,8 @@
 		06B11E31260AB032005D4DCC /* InventarioSeguroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InventarioSeguroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B11E35260AB032005D4DCC /* InventarioSeguroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventarioSeguroUITests.swift; sourceTree = "<group>"; };
 		06B11E37260AB032005D4DCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		363CCE002638A6E3006959E9 /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
+		363CCE052638A7E3006959E9 /* DBUsuarioHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBUsuarioHelper.swift; sourceTree = "<group>"; };
 		364BAE4E2615551900A9504A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		36CF8011263796C1008C037F /* Rollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rollo.swift; sourceTree = "<group>"; };
 		36CF8016263797AE008C037F /* DBRolloHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBRolloHelper.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 				06B11E13260AB031005D4DCC /* AppDelegate.swift */,
 				06B11E15260AB031005D4DCC /* SceneDelegate.swift */,
 				36CF8011263796C1008C037F /* Rollo.swift */,
+				363CCE002638A6E3006959E9 /* Usuario.swift */,
+				363CCE052638A7E3006959E9 /* DBUsuarioHelper.swift */,
 				36CF8016263797AE008C037F /* DBRolloHelper.swift */,
 				06B11E19260AB031005D4DCC /* Main.storyboard */,
 				06B11E1C260AB031005D4DCC /* Assets.xcassets */,
@@ -269,9 +275,11 @@
 			files = (
 				06B11E14260AB031005D4DCC /* AppDelegate.swift in Sources */,
 				36CF8017263797AE008C037F /* DBRolloHelper.swift in Sources */,
+				363CCE012638A6E3006959E9 /* Usuario.swift in Sources */,
 				C1A143802613D84C00B8EBC7 /* mostrarResultadosViewController.swift in Sources */,
 				364BAE4F2615551900A9504A /* ViewController.swift in Sources */,
 				36CF8012263796C1008C037F /* Rollo.swift in Sources */,
+				363CCE062638A7E3006959E9 /* DBUsuarioHelper.swift in Sources */,
 				06B11E16260AB031005D4DCC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

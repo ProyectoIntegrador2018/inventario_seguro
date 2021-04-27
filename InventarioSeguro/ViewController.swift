@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     // MARK: - Variables y Outlets
     var db:DBRolloHelper = DBRolloHelper()
     var rollos: [Rollo] = []
+    var dbU:DBUsuarioHelper = DBUsuarioHelper()
+    var usuarios: [Usuario] = []
     
     @IBOutlet weak var botonGuardar: UIButton!
     @IBOutlet weak var botonScan: UIButton!
@@ -142,6 +144,14 @@ class ViewController: UIViewController {
         
         for rollo in rollos {
             print("id: ", rollo.id, "|| numeroIdent: ", rollo.numeroIdent)
+        }
+        
+        dbU.insert(id: 2000, nombre: "Meach Villareal", correo: "meach@gmail.com", cargo: "Animadora Digital")
+        dbU.insert(id: 2001, nombre: "Braix Hernandez", correo: "braix@gmail.com", cargo: "Doctor General")
+        usuarios = dbU.read()
+        
+        for usuario in usuarios {
+            print("id: ", usuario.id, "|| nombre: ", usuario.nombre, "|| correo: ", usuario.correo, "|| cargo: ", usuario.cargo)
         }
     }
 }

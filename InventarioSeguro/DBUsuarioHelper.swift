@@ -1,14 +1,14 @@
 //
-//  DBHelper.swift
+//  DBUsuarioHelper.swift
 //  InventarioSeguro
 //
-//  Created by Maggie Jimenez Herrera on 26/04/21.
+//  Created by Maggie Jimenez Herrera on 27/04/21.
 //
 
 import Foundation
 import SQLite3
 
-class DBRolloHelper {
+class DBUsuarioHelper {
     
     let dbPath: String = "inventarioSeguroDB.sqlite"
     var db:OpaquePointer?
@@ -35,15 +35,15 @@ class DBRolloHelper {
     
     func createTable() {
         let createTableString =
-            "CREATE TABLE IF NOT EXISTS rollo(id INTEGER PRIMARY KEY, numeroIdent TEXT);"
+            "CREATE TABLE IF NOT EXISTS usuario(id INTEGER PRIMARY KEY, nombre TEXT, correo TEXT, cargo TEXT);"
         var createTableStatment: OpaquePointer? = nil
         
         if sqlite3_prepare_v2(db, createTableString, -1, &createTableStatment, nil) == SQLITE_OK {
             if sqlite3_step(createTableStatment) == SQLITE_DONE{
-                print("rollo table created")
+                print("usuario table created")
             }
             else {
-                print("rollo table could not be created")
+                print("usuario table could not be created")
             }
         }
         else {
@@ -52,20 +52,22 @@ class DBRolloHelper {
         sqlite3_finalize(createTableStatment)
     }
     
-    func insert(id:Int, numeroIdent:String) {
+    func insert(id:Int, nombre:String, correo:String, cargo:String) {
         
-        let rollos = read()
-        for rollo in rollos{
-            if rollo.id == id {
+        let usuarios = read()
+        for usuario in usuarios{
+            if usuario.id == id {
                 return
             }
         }
         let insertStatenentString =
-            "INSERT INTO rollo (id, numeroIdent) VALUES (?, ?);"
+            "INSERT INTO usuario (id, nombre, correo, cargo) VALUES (?, ?, ?, ?);"
         var insertStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, insertStatenentString, -1, &insertStatement, nil) == SQLITE_OK {
             sqlite3_bind_int(insertStatement, 1, Int32(id))
-            sqlite3_bind_text(insertStatement, 2, (numeroIdent as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 2, (nombre as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 3, (correo as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 4, (cargo as NSString).utf8String, -1, nil)
             
             if sqlite3_step(insertStatement) == SQLITE_DONE{
                 print("Successfully inserted row")
@@ -80,16 +82,18 @@ class DBRolloHelper {
         sqlite3_finalize(insertStatement)
     }
     
-    func read() -> [Rollo] {
-        let queryStatementString = "SELECT * FROM rollo;"
+    func read() -> [Usuario] {
+        let queryStatementString = "SELECT * FROM usuario;"
         var queryStatement: OpaquePointer? = nil
-        var rollos : [Rollo] = []
+        var usuarios : [Usuario] = []
         
         if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
             while sqlite3_step(queryStatement) == SQLITE_ROW {
                 let id = sqlite3_column_int(queryStatement, 0)
-                let numeroIdent = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
-                rollos.append(Rollo(id: Int(id), numeroIdent: numeroIdent))
+                let nombre = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
+                let correo = String(describing: String(cString: sqlite3_column_text(queryStatement, 2)))
+                let cargo = String(describing: String(cString: sqlite3_column_text(queryStatement, 3)))
+                usuarios.append(Usuario(id: Int(id), nombre: nombre, correo: correo, cargo: cargo))
                 //print("Query Result: ")
                 //print("\(id) | \(numeroIdent)")
             }
@@ -98,11 +102,11 @@ class DBRolloHelper {
             print("SELECT statement could not be prepared")
         }
         sqlite3_finalize(queryStatement)
-        return rollos
+        return usuarios
     }
     
     func deleteByID(id:Int) {
-        let deleteStatementString = "DELETE FROM rollo WHERE Id = ?;"
+        let deleteStatementString = "DELETE FROM usuario WHERE Id = ?;"
         var deleteStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, deleteStatementString, -1, &deleteStatement, nil) == SQLITE_OK {
             sqlite3_bind_int(deleteStatement, 1, Int32(id))
