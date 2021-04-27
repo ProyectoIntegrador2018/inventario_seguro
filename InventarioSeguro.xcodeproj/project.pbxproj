@@ -15,6 +15,8 @@
 		06B11E2B260AB032005D4DCC /* InventarioSeguroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B11E2A260AB032005D4DCC /* InventarioSeguroTests.swift */; };
 		06B11E36260AB032005D4DCC /* InventarioSeguroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B11E35260AB032005D4DCC /* InventarioSeguroUITests.swift */; };
 		364BAE4F2615551900A9504A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364BAE4E2615551900A9504A /* ViewController.swift */; };
+		36CF8012263796C1008C037F /* Rollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF8011263796C1008C037F /* Rollo.swift */; };
+		36CF8017263797AE008C037F /* DBRolloHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF8016263797AE008C037F /* DBRolloHelper.swift */; };
 		C1A143802613D84C00B8EBC7 /* mostrarResultadosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A1437F2613D84C00B8EBC7 /* mostrarResultadosViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +52,8 @@
 		06B11E35260AB032005D4DCC /* InventarioSeguroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventarioSeguroUITests.swift; sourceTree = "<group>"; };
 		06B11E37260AB032005D4DCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		364BAE4E2615551900A9504A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		36CF8011263796C1008C037F /* Rollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rollo.swift; sourceTree = "<group>"; };
+		36CF8016263797AE008C037F /* DBRolloHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBRolloHelper.swift; sourceTree = "<group>"; };
 		C1A1437F2613D84C00B8EBC7 /* mostrarResultadosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mostrarResultadosViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +107,8 @@
 			children = (
 				06B11E13260AB031005D4DCC /* AppDelegate.swift */,
 				06B11E15260AB031005D4DCC /* SceneDelegate.swift */,
+				36CF8011263796C1008C037F /* Rollo.swift */,
+				36CF8016263797AE008C037F /* DBRolloHelper.swift */,
 				06B11E19260AB031005D4DCC /* Main.storyboard */,
 				06B11E1C260AB031005D4DCC /* Assets.xcassets */,
 				06B11E1E260AB031005D4DCC /* LaunchScreen.storyboard */,
@@ -262,8 +268,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				06B11E14260AB031005D4DCC /* AppDelegate.swift in Sources */,
+				36CF8017263797AE008C037F /* DBRolloHelper.swift in Sources */,
 				C1A143802613D84C00B8EBC7 /* mostrarResultadosViewController.swift in Sources */,
 				364BAE4F2615551900A9504A /* ViewController.swift in Sources */,
+				36CF8012263796C1008C037F /* Rollo.swift in Sources */,
 				06B11E16260AB031005D4DCC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

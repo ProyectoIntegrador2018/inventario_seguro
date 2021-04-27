@@ -12,7 +12,9 @@ import VisionKit
 
 class ViewController: UIViewController {
     // MARK: - Variables y Outlets
-   
+    var db:DBRolloHelper = DBRolloHelper()
+    var rollos: [Rollo] = []
+    
     @IBOutlet weak var botonGuardar: UIButton!
     @IBOutlet weak var botonScan: UIButton!
     //Resultado del recononocimiento de la imagen
@@ -31,6 +33,9 @@ class ViewController: UIViewController {
         addDoneBtn()
         // Configuración del reconocimiento de imagen
         configureOCR()
+        
+        objetoDummy()
+        
     }
     // MARK: - Funcionalidad y settings
     // Función para el procesamiento de la imagen
@@ -128,6 +133,17 @@ class ViewController: UIViewController {
         }
         self.counter = 0
     }
+    
+    //Funcion para crear objeto dummy
+    func objetoDummy() {
+        db.insert(id: 1000, numeroIdent: "WASD38")
+        db.insert(id: 1001, numeroIdent: "QERF55")
+        rollos = db.read()
+        
+        for rollo in rollos {
+            print("id: ", rollo.id, "|| numeroIdent: ", rollo.numeroIdent)
+        }
+    }
 }
 // MARK: - Controller de la camara
 /// Controller para la camara
@@ -163,6 +179,7 @@ extension ViewController: VNDocumentCameraViewControllerDelegate {
     }
     
 }
+
 
 
 
