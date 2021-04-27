@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     var rollos: [Rollo] = []
     var dbU:DBUsuarioHelper = DBUsuarioHelper()
     var usuarios: [Usuario] = []
+    var dbR:DBRegistroHelper = DBRegistroHelper()
+    var registros: [Registro] = []
     
     @IBOutlet weak var botonGuardar: UIButton!
     @IBOutlet weak var botonScan: UIButton!
@@ -152,6 +154,14 @@ class ViewController: UIViewController {
         
         for usuario in usuarios {
             print("id: ", usuario.id, "|| nombre: ", usuario.nombre, "|| correo: ", usuario.correo, "|| cargo: ", usuario.cargo)
+        }
+        
+        dbR.insert(id: 3000, idUsuario: 2000, idRollos: "1001", ubicacion: "Mty", fecha: "27/04/20")
+        dbR.insert(id: 3001, idUsuario: 2001, idRollos: "1000", ubicacion: "CDMX", fecha: "27/04/20")
+        registros = dbR.read()
+        
+        for registro in registros {
+            print("id: ", registro.id, "|| idUsuario: ", registro.idUsuario, "|| idRollo: ", registro.idRollos, "|| ubicacion: ", registro.ubicacion, "|| fecha: ", registro.fecha)
         }
     }
 }
