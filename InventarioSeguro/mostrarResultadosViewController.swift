@@ -12,12 +12,31 @@ class mostrarResultadosViewController: UIViewController {
     
    
     @IBOutlet weak var rolloCode: UITextField!
-    var capturedText: String = ""
-
+    
+    @IBOutlet weak var rolloCode2: UITextField!
+    
+    @IBOutlet weak var rolloCode3: UITextField!
+    
+    @IBOutlet weak var rolloCode4: UITextField!
+    
+    var capturedText: [String] = []
+  
+    override func viewWillAppear(_ animated: Bool) {
+        rolloCode.text = ""
+        rolloCode2.text = ""
+        rolloCode3.text = ""
+        rolloCode4.text = ""
+        
+        rolloCode.text = capturedText[0]
+        rolloCode2.text = capturedText[1]
+        rolloCode3.text = capturedText[2]
+        rolloCode4.text = capturedText[3]
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        rolloCode.text = capturedText
+        
         
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing));
         view.addGestureRecognizer(tap)
