@@ -16,6 +16,8 @@
 		06B11E36260AB032005D4DCC /* InventarioSeguroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B11E35260AB032005D4DCC /* InventarioSeguroUITests.swift */; };
 		363CCE012638A6E3006959E9 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363CCE002638A6E3006959E9 /* Usuario.swift */; };
 		363CCE062638A7E3006959E9 /* DBUsuarioHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363CCE052638A7E3006959E9 /* DBUsuarioHelper.swift */; };
+		0B7E1A7B2638AD70009355A7 /* Registro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7E1A7A2638AD70009355A7 /* Registro.swift */; };
+		0B7E1A832638AFBC009355A7 /* DBRegistroHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7E1A822638AFBC009355A7 /* DBRegistroHelper.swift */; };
 		364BAE4F2615551900A9504A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364BAE4E2615551900A9504A /* ViewController.swift */; };
 		36CF8012263796C1008C037F /* Rollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF8011263796C1008C037F /* Rollo.swift */; };
 		36CF8017263797AE008C037F /* DBRolloHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF8016263797AE008C037F /* DBRolloHelper.swift */; };
@@ -55,6 +57,8 @@
 		06B11E37260AB032005D4DCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		363CCE002638A6E3006959E9 /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 		363CCE052638A7E3006959E9 /* DBUsuarioHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBUsuarioHelper.swift; sourceTree = "<group>"; };
+		0B7E1A7A2638AD70009355A7 /* Registro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registro.swift; sourceTree = "<group>"; };
+		0B7E1A822638AFBC009355A7 /* DBRegistroHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBRegistroHelper.swift; sourceTree = "<group>"; };
 		364BAE4E2615551900A9504A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		36CF8011263796C1008C037F /* Rollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rollo.swift; sourceTree = "<group>"; };
 		36CF8016263797AE008C037F /* DBRolloHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBRolloHelper.swift; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 				06B11E21260AB031005D4DCC /* Info.plist */,
 				364BAE4E2615551900A9504A /* ViewController.swift */,
 				C1A1437F2613D84C00B8EBC7 /* mostrarResultadosViewController.swift */,
+				0B7E1A7A2638AD70009355A7 /* Registro.swift */,
+				0B7E1A822638AFBC009355A7 /* DBRegistroHelper.swift */,
 			);
 			path = InventarioSeguro;
 			sourceTree = "<group>";
@@ -281,6 +287,8 @@
 				36CF8012263796C1008C037F /* Rollo.swift in Sources */,
 				363CCE062638A7E3006959E9 /* DBUsuarioHelper.swift in Sources */,
 				06B11E16260AB031005D4DCC /* SceneDelegate.swift in Sources */,
+				0B7E1A832638AFBC009355A7 /* DBRegistroHelper.swift in Sources */,
+				0B7E1A7B2638AD70009355A7 /* Registro.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
