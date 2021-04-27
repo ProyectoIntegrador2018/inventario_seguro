@@ -21,7 +21,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageViewImagen: UIImageView!
     // Variable para el manejo del reconocimiento del texto
     private var ocrRequest = VNRecognizeTextRequest(completionHandler: nil)
-    
+    var ocrText = ""
+    var ocrTexts = Array(repeating:"", count: 4)
+    var counter = 0
     // MARK: - ViewDidLoad 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,22 +53,24 @@ class ViewController: UIViewController {
         ocrRequest = VNRecognizeTextRequest { (request, error) in
             guard let observations = request.results as? [VNRecognizedTextObservation] else { return }
             
-            var ocrText = ""
+           // Escoge la palabra que mas se acerque a la palabra de la imagen
             for observation in observations {
                 guard let topCandidate = observation.topCandidates(1).first else { return }
                 
-                ocrText += topCandidate.string + "\n"
+                //self.ocrText += topCandidate.string + "\n"
+                self.ocrTexts[self.counter] = topCandidate.string
+                self.counter += 1
             }
             
             
             DispatchQueue.main.async {
-                self.textViewResultado.text = ocrText
+                //self.textViewResultado.text = self.ocrText
                 self.botonScan.isEnabled = true
             }
         }
         /// Accurate es mas lenta pero mas precisa
         ocrRequest.recognitionLevel = .accurate
-        /// Idiomas a detetar
+        /// Idiomas a detectar
         ocrRequest.recognitionLanguages = ["en-US", "en-GB"]
         /// Correcion de palabras
         ocrRequest.usesLanguageCorrection = true
@@ -81,15 +85,15 @@ class ViewController: UIViewController {
         present(scanVC, animated: true)
     }
     
+    // MARK: - Prepare for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // TODO: prevenir que este segue se realize si scannedOCR esta vacio
-        let scannedOCR = self.textViewResultado?.text ?? ""
+        //let scannedOCR = self.textViewResultado?.text ?? ""
+        let scannedOCR = self.ocrTexts
+        resetVariables()
         let destinationVC = segue.destination as! mostrarResultadosViewController
-        
         destinationVC.capturedText = scannedOCR
-        
-        
         
     }
     
@@ -112,6 +116,18 @@ class ViewController: UIViewController {
     {
         view.endEditing(true)
     }
+    
+    func resetVariables()
+    {
+        
+        var j = 0
+        while(j<=3)
+        {
+            self.ocrTexts[j] = ""
+           j += 1
+        }
+        self.counter = 0
+    }
 }
 // MARK: - Controller de la camara
 /// Controller para la camara
@@ -122,9 +138,16 @@ extension ViewController: VNDocumentCameraViewControllerDelegate {
             controller.dismiss(animated: true)
             return
         }
-        
+        var i = 0
+        while(i < scan.pageCount)
+        {
+            processImage(scan.imageOfPage(at: i))
+            i+=1
+        }
+       
+       
         imageViewImagen.image = scan.imageOfPage(at: 0)
-        processImage(scan.imageOfPage(at: 0))
+       
         /// Se termino de tomar fotos
         controller.dismiss(animated: true)
     }

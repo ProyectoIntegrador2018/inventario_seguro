@@ -281,6 +281,9 @@
                     </view>
                     <connections>
                         <outlet property="rolloCode" destination="7Xa-uP-4jT" id="ebe-B5-ZeA"/>
+                        <outlet property="rolloCode2" destination="mMa-bO-YZW" id="mb7-st-QBP"/>
+                        <outlet property="rolloCode3" destination="InS-Rg-49G" id="pZg-o1-pDq"/>
+                        <outlet property="rolloCode4" destination="1KV-Te-8zR" id="xrn-bc-YA1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7M3-ru-cdd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
