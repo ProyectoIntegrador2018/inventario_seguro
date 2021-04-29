@@ -24,15 +24,25 @@ class ViewController: UIViewController {
     //Resultado del recononocimiento de la imagen
     @IBOutlet weak var textViewResultado: UITextView!
     //Imagen tomada con la camra
+    @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var imageViewImagen: UIImageView!
     // Variable para el manejo del reconocimiento del texto
     private var ocrRequest = VNRecognizeTextRequest(completionHandler: nil)
     var ocrText = ""
     var ocrTexts = Array(repeating:"", count: 4)
-    var counter = 0
+    var counter = 0;
+    var displayName:String = "";
+    
+    
+    //MARK: - ViewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated);
+    }
+    
     // MARK: - ViewDidLoad 
     override func viewDidLoad() {
         super.viewDidLoad()
+        displayNameLabel.text = "Bienvenido "+displayName+", empieza a registrar";
         // Agrega el boton de done al teclado cuando se quiere editar el resultado
         addDoneBtn()
         // Configuración del reconocimiento de imagen
