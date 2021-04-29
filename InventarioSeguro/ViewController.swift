@@ -12,23 +12,44 @@ import VisionKit
 
 class ViewController: UIViewController {
     // MARK: - Variables y Outlets
-   
+    var db:DBRolloHelper = DBRolloHelper()
+    var rollos: [Rollo] = []
+    var dbU:DBUsuarioHelper = DBUsuarioHelper()
+    var usuarios: [Usuario] = []
+    var dbR:DBRegistroHelper = DBRegistroHelper()
+    var registros: [Registro] = []
+    
     @IBOutlet weak var botonGuardar: UIButton!
     @IBOutlet weak var botonScan: UIButton!
     //Resultado del recononocimiento de la imagen
     @IBOutlet weak var textViewResultado: UITextView!
     //Imagen tomada con la camra
+    @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var imageViewImagen: UIImageView!
     // Variable para el manejo del reconocimiento del texto
     private var ocrRequest = VNRecognizeTextRequest(completionHandler: nil)
+    var ocrText = ""
+    var ocrTexts = Array(repeating:"", count: 4)
+    var counter = 0;
+    var displayName:String = "";
+    
+    
+    //MARK: - ViewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated);
+    }
     
     // MARK: - ViewDidLoad 
     override func viewDidLoad() {
         super.viewDidLoad()
+        displayNameLabel.text = "Bienvenido "+displayName+", empieza a registrar";
         // Agrega el boton de done al teclado cuando se quiere editar el resultado
         addDoneBtn()
         // Configuración del reconocimiento de imagen
         configureOCR()
+        
+        objetoDummy()
+        
     }
     // MARK: - Funcionalidad y settings
     // Función para el procesamiento de la imagen
@@ -51,22 +72,24 @@ class ViewController: UIViewController {
         ocrRequest = VNRecognizeTextRequest { (request, error) in
             guard let observations = request.results as? [VNRecognizedTextObservation] else { return }
             
-            var ocrText = ""
+           // Escoge la palabra que mas se acerque a la palabra de la imagen
             for observation in observations {
                 guard let topCandidate = observation.topCandidates(1).first else { return }
                 
-                ocrText += topCandidate.string + "\n"
+                //self.ocrText += topCandidate.string + "\n"
+                self.ocrTexts[self.counter] = topCandidate.string
+                self.counter += 1
             }
             
             
             DispatchQueue.main.async {
-                self.textViewResultado.text = ocrText
+                //self.textViewResultado.text = self.ocrText
                 self.botonScan.isEnabled = true
             }
         }
         /// Accurate es mas lenta pero mas precisa
         ocrRequest.recognitionLevel = .accurate
-        /// Idiomas a detetar
+        /// Idiomas a detectar
         ocrRequest.recognitionLanguages = ["en-US", "en-GB"]
         /// Correcion de palabras
         ocrRequest.usesLanguageCorrection = true
@@ -81,15 +104,15 @@ class ViewController: UIViewController {
         present(scanVC, animated: true)
     }
     
+    // MARK: - Prepare for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         // TODO: prevenir que este segue se realize si scannedOCR esta vacio
-        let scannedOCR = self.textViewResultado?.text ?? ""
+        //let scannedOCR = self.textViewResultado?.text ?? ""
+        let scannedOCR = self.ocrTexts
+        resetVariables()
         let destinationVC = segue.destination as! mostrarResultadosViewController
-        
         destinationVC.capturedText = scannedOCR
-        
-        
         
     }
     
@@ -112,6 +135,45 @@ class ViewController: UIViewController {
     {
         view.endEditing(true)
     }
+    
+    func resetVariables()
+    {
+        
+        var j = 0
+        while(j<=3)
+        {
+            self.ocrTexts[j] = ""
+           j += 1
+        }
+        self.counter = 0
+    }
+    
+    //Funcion para crear objeto dummy
+    func objetoDummy() {
+        db.insert(id: 1000, numeroIdent: "WASD38")
+        db.insert(id: 1001, numeroIdent: "QERF55")
+        rollos = db.read()
+        
+        for rollo in rollos {
+            print("id: ", rollo.id, "|| numeroIdent: ", rollo.numeroIdent)
+        }
+        
+        dbU.insert(id: 2000, nombre: "Meach Villareal", correo: "meach@gmail.com", cargo: "Animadora Digital")
+        dbU.insert(id: 2001, nombre: "Braix Hernandez", correo: "braix@gmail.com", cargo: "Doctor General")
+        usuarios = dbU.read()
+        
+        for usuario in usuarios {
+            print("id: ", usuario.id, "|| nombre: ", usuario.nombre, "|| correo: ", usuario.correo, "|| cargo: ", usuario.cargo)
+        }
+        
+        dbR.insert(id: 3000, idUsuario: 2000, idRollos: "1001", ubicacion: "Mty", fecha: "27/04/20")
+        dbR.insert(id: 3001, idUsuario: 2001, idRollos: "1000", ubicacion: "CDMX", fecha: "27/04/20")
+        registros = dbR.read()
+        
+        for registro in registros {
+            print("id: ", registro.id, "|| idUsuario: ", registro.idUsuario, "|| idRollo: ", registro.idRollos, "|| ubicacion: ", registro.ubicacion, "|| fecha: ", registro.fecha)
+        }
+    }
 }
 // MARK: - Controller de la camara
 /// Controller para la camara
@@ -122,9 +184,16 @@ extension ViewController: VNDocumentCameraViewControllerDelegate {
             controller.dismiss(animated: true)
             return
         }
-        
+        var i = 0
+        while(i < scan.pageCount)
+        {
+            processImage(scan.imageOfPage(at: i))
+            i+=1
+        }
+       
+       
         imageViewImagen.image = scan.imageOfPage(at: 0)
-        processImage(scan.imageOfPage(at: 0))
+       
         /// Se termino de tomar fotos
         controller.dismiss(animated: true)
     }
@@ -140,6 +209,7 @@ extension ViewController: VNDocumentCameraViewControllerDelegate {
     }
     
 }
+
 
 
 
