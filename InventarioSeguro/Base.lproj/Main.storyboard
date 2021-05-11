@@ -139,7 +139,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lnA-SS-2bc">
-                                <rect key="frame" x="20" y="415" width="374" height="356"/>
+                                <rect key="frame" x="20" y="459" width="374" height="312"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="lnA-SS-2bc" secondAttribute="height" multiplier="187:178" id="kRi-X4-cw0"/>
                                 </constraints>
@@ -180,17 +180,24 @@
                                     <constraint firstAttribute="width" secondItem="aaL-TG-7Rg" secondAttribute="height" multiplier="25:2" id="lXr-Sq-fR9"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JRV-wh-ag4" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                <rect key="frame" x="26" y="464" width="361" height="294"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eHy-0f-h4X"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="eHy-0f-h4X" firstAttribute="trailing" secondItem="4Iv-fr-uYL" secondAttribute="trailing" constant="104" id="06y-Ze-5vk"/>
                             <constraint firstItem="aaL-TG-7Rg" firstAttribute="top" secondItem="lnA-SS-2bc" secondAttribute="bottom" constant="37" id="0dT-r5-nJZ"/>
+                            <constraint firstItem="JRV-wh-ag4" firstAttribute="centerX" secondItem="lnA-SS-2bc" secondAttribute="centerX" id="1cD-C9-A5Y"/>
                             <constraint firstItem="LE1-PE-3ci" firstAttribute="leading" secondItem="eHy-0f-h4X" secondAttribute="leading" constant="42" id="5l0-Cl-Rko"/>
+                            <constraint firstItem="JRV-wh-ag4" firstAttribute="top" secondItem="uvl-ZE-QBh" secondAttribute="bottom" constant="26" id="C0h-VI-EYu"/>
                             <constraint firstItem="LE1-PE-3ci" firstAttribute="top" secondItem="4Iv-fr-uYL" secondAttribute="bottom" constant="26" id="JlB-W2-cDg"/>
                             <constraint firstItem="lnA-SS-2bc" firstAttribute="leading" secondItem="eHy-0f-h4X" secondAttribute="leading" constant="20" id="Kve-RS-d93"/>
                             <constraint firstItem="eHy-0f-h4X" firstAttribute="bottom" secondItem="aaL-TG-7Rg" secondAttribute="bottom" constant="24" id="SNN-f7-Ilo"/>
                             <constraint firstItem="uvl-ZE-QBh" firstAttribute="leading" secondItem="eHy-0f-h4X" secondAttribute="leading" constant="20" id="Sya-dk-QCB"/>
+                            <constraint firstItem="JRV-wh-ag4" firstAttribute="leading" secondItem="eHy-0f-h4X" secondAttribute="leading" constant="26" id="Vgy-nm-ONa"/>
                             <constraint firstItem="eHy-0f-h4X" firstAttribute="trailing" secondItem="uvl-ZE-QBh" secondAttribute="trailing" constant="20" id="VmT-Pn-OgU"/>
                             <constraint firstItem="4Iv-fr-uYL" firstAttribute="top" secondItem="eHy-0f-h4X" secondAttribute="top" constant="50" id="aJv-e4-9cD"/>
                             <constraint firstItem="eHy-0f-h4X" firstAttribute="trailing" secondItem="lnA-SS-2bc" secondAttribute="trailing" constant="20" id="acc-ga-RqW"/>
@@ -200,6 +207,7 @@
                             <constraint firstItem="lnA-SS-2bc" firstAttribute="top" secondItem="uvl-ZE-QBh" secondAttribute="bottom" constant="21" id="dtD-L7-3zC"/>
                             <constraint firstItem="aaL-TG-7Rg" firstAttribute="leading" secondItem="eHy-0f-h4X" secondAttribute="leading" constant="20" id="eIp-ZO-Uhe"/>
                             <constraint firstItem="uvl-ZE-QBh" firstAttribute="top" secondItem="LE1-PE-3ci" secondAttribute="bottom" constant="65" id="pu1-dx-Oaa"/>
+                            <constraint firstItem="aaL-TG-7Rg" firstAttribute="top" secondItem="JRV-wh-ag4" secondAttribute="bottom" constant="50" id="y7o-87-eQn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="43J-FH-Tx9"/>
@@ -208,12 +216,13 @@
                         <outlet property="botonScan" destination="r9m-6F-cSk" id="avB-5w-Hdo"/>
                         <outlet property="displayNameLabel" destination="LE1-PE-3ci" id="lHv-fh-j1B"/>
                         <outlet property="imageViewImagen" destination="lnA-SS-2bc" id="Vte-dK-7Ff"/>
+                        <outlet property="imageViewSlide" destination="JRV-wh-ag4" id="dRm-LP-SYI"/>
                         <outlet property="textViewResultado" destination="uvl-ZE-QBh" id="6nf-MG-VHk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FEU-JT-MOO" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-501" y="131"/>
+            <point key="canvasLocation" x="-501.44927536231887" y="130.58035714285714"/>
         </scene>
         <!--Mostrar Resultados View Controller-->
         <scene sceneID="e72-3K-FEA">

@@ -9,6 +9,7 @@ import UIKit
 // Librerias para el reconocimiento de imagen
 import Vision
 import VisionKit
+import ImageSlideshow
 
 class ViewController: UIViewController {
     // MARK: - Variables y Outlets
@@ -25,15 +26,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var textViewResultado: UITextView!
     //Imagen tomada con la camra
     @IBOutlet weak var displayNameLabel: UILabel!
-    @IBOutlet weak var imageViewImagen: UIImageView!
+    @IBOutlet weak var imageViewImagen: ImageSlideshow!
     
+    @IBOutlet weak var imageViewSlide: ImageSlideshow!
     // Variable para el manejo del reconocimiento del texto
     private var ocrRequest = VNRecognizeTextRequest(completionHandler: nil)
     var ocrText = ""
     var ocrTexts = Array(repeating:"", count: 4)
     var counter = 0;
     var displayName:String = "";
-    var imagesListArray = [UIImage]()
+    var imagesListArray = [ImageSource]()
     
     //MARK: - ViewWillAppear
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +53,7 @@ class ViewController: UIViewController {
         configureOCR()
         
         objetoDummy()
+                
         
     }
     
@@ -191,13 +194,11 @@ extension ViewController: VNDocumentCameraViewControllerDelegate {
         while(i < scan.pageCount)
         {
             processImage(scan.imageOfPage(at: i))
-            imagesListArray.append(scan.imageOfPage(at: i))
+            let image = ImageSource(image:scan.imageOfPage(at: i))
+            imagesListArray.append(image)
             i+=1
         }
-        self.imageViewImagen.animationImages = imagesListArray
-        self.imageViewImagen.animationDuration = 6.0
-        self.imageViewImagen.startAnimating()
-       
+        imageViewSlide.setImageInputs(imagesListArray)
         //imageViewImagen.image = scan.imageOfPage(at: 0)
        
         /// Se termino de tomar fotos

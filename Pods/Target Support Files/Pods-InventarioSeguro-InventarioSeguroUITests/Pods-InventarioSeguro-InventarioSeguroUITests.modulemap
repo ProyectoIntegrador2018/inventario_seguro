@@ -1,0 +1,6 @@
+framework module Pods_InventarioSeguro_InventarioSeguroUITests {
+  umbrella header "Pods-InventarioSeguro-InventarioSeguroUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
