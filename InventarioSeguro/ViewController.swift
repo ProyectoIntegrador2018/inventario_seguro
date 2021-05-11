@@ -26,17 +26,19 @@ class ViewController: UIViewController {
     //Imagen tomada con la camra
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var imageViewImagen: UIImageView!
+    
     // Variable para el manejo del reconocimiento del texto
     private var ocrRequest = VNRecognizeTextRequest(completionHandler: nil)
     var ocrText = ""
     var ocrTexts = Array(repeating:"", count: 4)
     var counter = 0;
     var displayName:String = "";
-    
+    var imagesListArray = [UIImage]()
     
     //MARK: - ViewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: animated);
+        imagesListArray.removeAll()
     }
     
     // MARK: - ViewDidLoad 
@@ -51,6 +53,7 @@ class ViewController: UIViewController {
         objetoDummy()
         
     }
+    
     // MARK: - Funcionalidad y settings
     // Función para el procesamiento de la imagen
     private func processImage(_ image: UIImage) {
@@ -115,7 +118,6 @@ class ViewController: UIViewController {
         destinationVC.capturedText = scannedOCR
         
     }
-    
     
     
 
@@ -185,14 +187,18 @@ extension ViewController: VNDocumentCameraViewControllerDelegate {
             return
         }
         var i = 0
+        
         while(i < scan.pageCount)
         {
             processImage(scan.imageOfPage(at: i))
+            imagesListArray.append(scan.imageOfPage(at: i))
             i+=1
         }
+        self.imageViewImagen.animationImages = imagesListArray
+        self.imageViewImagen.animationDuration = 6.0
+        self.imageViewImagen.startAnimating()
        
-       
-        imageViewImagen.image = scan.imageOfPage(at: 0)
+        //imageViewImagen.image = scan.imageOfPage(at: 0)
        
         /// Se termino de tomar fotos
         controller.dismiss(animated: true)
