@@ -9,6 +9,7 @@ import UIKit
 // Librerias para el reconocimiento de imagen
 import Vision
 import VisionKit
+import ImageSlideshow
 
 class ViewController: UIViewController {
     // MARK: - Variables y Outlets
@@ -25,18 +26,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var textViewResultado: UITextView!
     //Imagen tomada con la camra
     @IBOutlet weak var displayNameLabel: UILabel!
-    @IBOutlet weak var imageViewImagen: UIImageView!
+    @IBOutlet weak var imageViewImagen: ImageSlideshow!
+    
+    @IBOutlet weak var imageViewSlide: ImageSlideshow!
     // Variable para el manejo del reconocimiento del texto
     private var ocrRequest = VNRecognizeTextRequest(completionHandler: nil)
     var ocrText = ""
     var ocrTexts = Array(repeating:"", count: 4)
     var counter = 0;
     var displayName:String = "";
-    
+    var imagesListArray = [ImageSource]()
     
     //MARK: - ViewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: animated);
+        imagesListArray.removeAll()
     }
     
     // MARK: - ViewDidLoad 
@@ -49,8 +53,10 @@ class ViewController: UIViewController {
         configureOCR()
         
         objetoDummy()
+                
         
     }
+    
     // MARK: - Funcionalidad y settings
     // Función para el procesamiento de la imagen
     private func processImage(_ image: UIImage) {
@@ -115,7 +121,6 @@ class ViewController: UIViewController {
         destinationVC.capturedText = scannedOCR
         
     }
-    
     
     
 
@@ -185,14 +190,16 @@ extension ViewController: VNDocumentCameraViewControllerDelegate {
             return
         }
         var i = 0
+        
         while(i < scan.pageCount)
         {
             processImage(scan.imageOfPage(at: i))
+            let image = ImageSource(image:scan.imageOfPage(at: i))
+            imagesListArray.append(image)
             i+=1
         }
-       
-       
-        imageViewImagen.image = scan.imageOfPage(at: 0)
+        imageViewSlide.setImageInputs(imagesListArray)
+        //imageViewImagen.image = scan.imageOfPage(at: 0)
        
         /// Se termino de tomar fotos
         controller.dismiss(animated: true)
