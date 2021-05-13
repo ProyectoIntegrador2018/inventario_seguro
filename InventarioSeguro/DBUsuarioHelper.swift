@@ -107,6 +107,31 @@ class DBUsuarioHelper {
         return usuarios
     }
     
+    func getUsuarioByEmail(_email: String) -> Usuario? {
+        let queryStatementString = "SELECT * FROM usuario where correo = ?;"
+        var queryStatement: OpaquePointer? = nil
+        var usuario: Usuario? = nil
+        if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
+            sqlite3_bind_text(queryStatement, 1, _email, -1, nil)
+            if sqlite3_step(queryStatement) == SQLITE_ROW {
+                let id = sqlite3_column_int(queryStatement, 0)
+                let nombre = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
+                let correo = String(describing: String(cString: sqlite3_column_text(queryStatement, 2)))
+                let password = String(describing: String(cString: sqlite3_column_text(queryStatement, 3)))
+                let cargo = String(describing: String(cString: sqlite3_column_text(queryStatement, 4)))
+                usuario = Usuario(id: Int(id), nombre: nombre, correo: correo, password: password, cargo: cargo)
+            } else {
+                print("Email not found")
+                usuario = nil
+            }
+        } else {
+            print("SELECT statement could not be prepared")
+            usuario = nil
+        }
+        sqlite3_finalize(queryStatement)
+        return usuario
+    }
+    
     func deleteByID(id:Int) {
         let deleteStatementString = "DELETE FROM usuario WHERE Id = ?;"
         var deleteStatement: OpaquePointer? = nil

@@ -43,19 +43,7 @@ class LoginViewController: UIViewController {
         return (userTField.text!.isEmpty && pwdTField.text!.isEmpty)
     }
     
-    // TODO: - This needs to be a method from the db helper
-    func getUserByEmail(_email: String) -> Usuario? {
-        let usuarios: [Usuario] = dbU.read()
-    
-        for usuario in usuarios{
-            if usuario.correo == _email {
-                return usuario
-            }
-        }
-        return nil
-    }
-    
-    func displayErrorMessage() {
+func displayErrorMessage() {
         let alertController = UIAlertController(title: "Error", message: "Credenciales inválidas, ingrese de nuevo", preferredStyle: .alert);
         let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil);
         
@@ -76,7 +64,7 @@ class LoginViewController: UIViewController {
             self.present(alertController, animated: true, completion: nil);
             
         } else {
-            usuario = getUserByEmail(_email: userTField.text!)
+            usuario = dbU.getUsuarioByEmail(_email: userTField.text!)
             if let retrieveUsuario = usuario {
                 if pwdTField.text! == retrieveUsuario.password {
                     self.performSegue(withIdentifier: "toHome", sender: self);
