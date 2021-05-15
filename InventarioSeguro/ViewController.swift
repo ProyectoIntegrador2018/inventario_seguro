@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     var ocrText = ""
     var ocrTexts = Array(repeating:"", count: 4)
     var counter = 0;
-    var displayName:String = "";
+    var displayUser: Usuario!
     var imagesListArray = [ImageSource]()
     
     //MARK: - ViewWillAppear
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     // MARK: - ViewDidLoad 
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayNameLabel.text = "Bienvenido "+displayName+", empieza a registrar";
+        displayNameLabel.text = "Bienvenido "+displayUser.nombre+", empieza a registrar";
         // Agrega el boton de done al teclado cuando se quiere editar el resultado
         addDoneBtn()
         // Configuración del reconocimiento de imagen
@@ -117,6 +117,7 @@ class ViewController: UIViewController {
         resetVariables()
         let destinationVC = segue.destination as! mostrarResultadosViewController
         destinationVC.capturedText = scannedOCR
+        destinationVC.usuario = self.displayUser
         
     }
     

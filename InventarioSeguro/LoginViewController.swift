@@ -79,9 +79,8 @@ func displayErrorMessage() {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let displayName = self.usuario!.nombre;
         let destinationVC = segue.destination as! ViewController
-        destinationVC.displayName = displayName;
+        destinationVC.displayUser = self.usuario;
     }
     
     
