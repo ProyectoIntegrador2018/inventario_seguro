@@ -11,6 +11,9 @@ import UIKit
 class mostrarResultadosViewController: UIViewController {
     
    
+    var dbR:DBRegistroHelper = DBRegistroHelper()
+    var registros: [Registro] = []
+    
     @IBOutlet weak var rolloCode: UITextField!
     
     @IBOutlet weak var rolloCode2: UITextField!
@@ -74,6 +77,11 @@ class mostrarResultadosViewController: UIViewController {
         }
         
         // TODO: add to database
+        dbR.insert(id: 3004, idUsuario: usuario.id, idRollos: "1003", ubicacion: "Mty", fecha: "14/05/21", accuracy: Int(numDifferences[0]))
+        dbR.insert(id: 3003, idUsuario: usuario.id, idRollos: "1003", ubicacion: "Mty", fecha: "14/05/21", accuracy: Int(numDifferences[1]))
+        dbR.insert(id: 3004, idUsuario: usuario.id, idRollos: "1003", ubicacion: "Mty", fecha: "14/05/21", accuracy: Int(numDifferences[2]))
+        dbR.insert(id: 3005, idUsuario: usuario.id, idRollos: "1003", ubicacion: "Mty", fecha: "14/05/21", accuracy: Int(numDifferences[3]))
+        
     }
     
     /// Get the percentage of number of errors from original to save
