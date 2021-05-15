@@ -136,8 +136,6 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uvl-ZE-QBh">
-                                <rect key="frame" x="20" y="309" width="374" height="129"/>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uvl-ZE-QBh">
                                 <rect key="frame" x="20" y="309" width="374" height="0.0"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <constraints>
