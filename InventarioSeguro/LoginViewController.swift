@@ -33,10 +33,10 @@ class LoginViewController: UIViewController {
     func createDummyUsers() {
         
         // Insert into database
-        dbU.insert(id: 2000, nombre: "Angel Treviño", correo: "angel@gmail.com", password: "ternium", cargo: "Project Admin")
-        dbU.insert(id: 2001, nombre: "Maggie Jimenez", correo: "maggie@gmail.com", password: "ternium", cargo: "Product Owner Proxy")
-        dbU.insert(id: 2002, nombre: "Roger Vazquez", correo: "roger@gmail.com", password: "ternium", cargo: "SCRUM master and Leader")
-        dbU.insert(id: 2003, nombre: "Jorge Ramos", correo: "jorge@gmail.com", password: "ternium", cargo: "Configuration Admin")
+        dbU.insert(id: UUID().uuidString, nombre: "Angel Treviño", correo: "angel@gmail.com", password: "ternium", cargo: "Project Admin")
+        dbU.insert(id: UUID().uuidString, nombre: "Maggie Jimenez", correo: "maggie@gmail.com", password: "ternium", cargo: "Product Owner Proxy")
+        dbU.insert(id: UUID().uuidString, nombre: "Roger Vazquez", correo: "roger@gmail.com", password: "ternium", cargo: "SCRUM master and Leader")
+        dbU.insert(id: UUID().uuidString, nombre: "Jorge Ramos", correo: "jorge@gmail.com", password: "ternium", cargo: "Configuration Admin")
     }
     
     func validateInput() -> Bool {
@@ -79,9 +79,8 @@ func displayErrorMessage() {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let displayName = self.usuario!.nombre;
         let destinationVC = segue.destination as! ViewController
-        destinationVC.displayName = displayName;
+        destinationVC.displayUser = self.usuario;
     }
     
     

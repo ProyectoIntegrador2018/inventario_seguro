@@ -13,10 +13,6 @@ import ImageSlideshow
 
 class ViewController: UIViewController {
     // MARK: - Variables y Outlets
-    var db:DBRolloHelper = DBRolloHelper()
-    var rollos: [Rollo] = []
-    var dbR:DBRegistroHelper = DBRegistroHelper()
-    var registros: [Registro] = []
     
     @IBOutlet weak var botonGuardar: UIButton!
     @IBOutlet weak var botonScan: UIButton!
@@ -32,7 +28,7 @@ class ViewController: UIViewController {
     var ocrText = ""
     var ocrTexts = Array(repeating:"", count: 4)
     var counter = 0;
-    var displayName:String = "";
+    var displayUser: Usuario!
     var imagesListArray = [ImageSource]()
     
     //MARK: - ViewWillAppear
@@ -44,13 +40,11 @@ class ViewController: UIViewController {
     // MARK: - ViewDidLoad 
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayNameLabel.text = "Bienvenido "+displayName+", empieza a registrar";
+        displayNameLabel.text = "Bienvenido "+displayUser.nombre+", empieza a registrar";
         // Agrega el boton de done al teclado cuando se quiere editar el resultado
         addDoneBtn()
         // Configuración del reconocimiento de imagen
         configureOCR()
-        
-        objetoDummy()
                 
         
     }
@@ -117,6 +111,7 @@ class ViewController: UIViewController {
         resetVariables()
         let destinationVC = segue.destination as! mostrarResultadosViewController
         destinationVC.capturedText = scannedOCR
+        destinationVC.usuario = self.displayUser
         
     }
     
@@ -149,25 +144,6 @@ class ViewController: UIViewController {
            j += 1
         }
         self.counter = 0
-    }
-    
-    //Funcion para crear objeto dummy
-    func objetoDummy() {
-        db.insert(id: 1000, numeroIdent: "WASD38")
-        db.insert(id: 1001, numeroIdent: "QERF55")
-        rollos = db.read()
-        
-        for rollo in rollos {
-            print("id: ", rollo.id, "|| numeroIdent: ", rollo.numeroIdent)
-        }
-        
-        dbR.insert(id: 3000, idUsuario: 2000, idRollos: "1001", ubicacion: "Mty", fecha: "27/04/20", accuracy: 85)
-        dbR.insert(id: 3001, idUsuario: 2001, idRollos: "1000", ubicacion: "CDMX", fecha: "27/04/20", accuracy: 90)
-        registros = dbR.read()
-        
-        for registro in registros {
-            print("id: ", registro.id, "|| idUsuario: ", registro.idUsuario, "|| idRollo: ", registro.idRollos, "|| ubicacion: ", registro.ubicacion, "|| fecha: ", registro.fecha, "|| accuracy: ", registro.accuracy)
-        }
     }
 }
 // MARK: - Controller de la camara

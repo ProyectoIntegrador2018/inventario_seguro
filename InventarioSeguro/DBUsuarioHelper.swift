@@ -35,7 +35,7 @@ class DBUsuarioHelper {
     
     func createTable() {
         let createTableString =
-            "CREATE TABLE IF NOT EXISTS usuario(id INTEGER PRIMARY KEY, nombre TEXT, correo TEXT, password TEXT, cargo TEXT);"
+            "CREATE TABLE IF NOT EXISTS usuario(id TEXT PRIMARY KEY, nombre TEXT, correo TEXT, password TEXT, cargo TEXT);"
         var createTableStatment: OpaquePointer? = nil
         
         if sqlite3_prepare_v2(db, createTableString, -1, &createTableStatment, nil) == SQLITE_OK {
@@ -52,7 +52,7 @@ class DBUsuarioHelper {
         sqlite3_finalize(createTableStatment)
     }
     
-    func insert(id:Int, nombre:String, correo:String, password: String, cargo:String) {
+    func insert(id: String, nombre:String, correo:String, password: String, cargo:String) {
         
         let usuarios = read()
         for usuario in usuarios{
@@ -64,7 +64,7 @@ class DBUsuarioHelper {
             "INSERT INTO usuario (id, nombre, correo, password, cargo) VALUES (?, ?, ?, ?, ?);"
         var insertStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, insertStatenentString, -1, &insertStatement, nil) == SQLITE_OK {
-            sqlite3_bind_int(insertStatement, 1, Int32(id))
+            sqlite3_bind_text(insertStatement, 1, (id as NSString).utf8String, -1, nil)
             sqlite3_bind_text(insertStatement, 2, (nombre as NSString).utf8String, -1, nil)
             sqlite3_bind_text(insertStatement, 3, (correo as NSString).utf8String, -1, nil)
             sqlite3_bind_text(insertStatement, 4, (password as NSString).utf8String, -1, nil)
@@ -90,12 +90,12 @@ class DBUsuarioHelper {
         
         if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
             while sqlite3_step(queryStatement) == SQLITE_ROW {
-                let id = sqlite3_column_int(queryStatement, 0)
+                let id = String(describing: String(cString: sqlite3_column_text(queryStatement, 0)))
                 let nombre = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
                 let correo = String(describing: String(cString: sqlite3_column_text(queryStatement, 2)))
                 let password = String(describing: String(cString: sqlite3_column_text(queryStatement, 3)))
                 let cargo = String(describing: String(cString: sqlite3_column_text(queryStatement, 4)))
-                usuarios.append(Usuario(id: Int(id), nombre: nombre, correo: correo, password: password, cargo: cargo))
+                usuarios.append(Usuario(id: id, nombre: nombre, correo: correo, password: password, cargo: cargo))
                 //print("Query Result: ")
                 //print("\(id) | \(numeroIdent)")
             }
@@ -114,12 +114,12 @@ class DBUsuarioHelper {
         if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
             sqlite3_bind_text(queryStatement, 1, _email, -1, nil)
             if sqlite3_step(queryStatement) == SQLITE_ROW {
-                let id = sqlite3_column_int(queryStatement, 0)
+                let id = String(describing: String(cString: sqlite3_column_text(queryStatement, 0)))
                 let nombre = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
                 let correo = String(describing: String(cString: sqlite3_column_text(queryStatement, 2)))
                 let password = String(describing: String(cString: sqlite3_column_text(queryStatement, 3)))
                 let cargo = String(describing: String(cString: sqlite3_column_text(queryStatement, 4)))
-                usuario = Usuario(id: Int(id), nombre: nombre, correo: correo, password: password, cargo: cargo)
+                usuario = Usuario(id: id, nombre: nombre, correo: correo, password: password, cargo: cargo)
             } else {
                 print("Email not found")
                 usuario = nil
@@ -132,11 +132,11 @@ class DBUsuarioHelper {
         return usuario
     }
     
-    func deleteByID(id:Int) {
+    func deleteByID(id:String) {
         let deleteStatementString = "DELETE FROM usuario WHERE Id = ?;"
         var deleteStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, deleteStatementString, -1, &deleteStatement, nil) == SQLITE_OK {
-            sqlite3_bind_int(deleteStatement, 1, Int32(id))
+            sqlite3_bind_text(deleteStatement, 1, (id as NSString).utf8String, -1, nil)
             if sqlite3_step(deleteStatement) == SQLITE_DONE {
                 print("Successfully deleted row")
             }

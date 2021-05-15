@@ -11,6 +11,10 @@ import UIKit
 class mostrarResultadosViewController: UIViewController {
     
    
+    var dbReg:DBRegistroHelper = DBRegistroHelper()
+    var dbRollos: DBRolloHelper = DBRolloHelper()
+    var registros: [Registro] = []
+    
     @IBOutlet weak var rolloCode: UITextField!
     
     @IBOutlet weak var rolloCode2: UITextField!
@@ -18,14 +22,36 @@ class mostrarResultadosViewController: UIViewController {
     @IBOutlet weak var rolloCode3: UITextField!
     
     @IBOutlet weak var rolloCode4: UITextField!
+    @IBOutlet weak var usuarioName: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     var capturedText: [String] = []
-  
+    var numDifferences: [Double] = []
+    var dataFromImage = false; // do not affect accuracy if its manual
+    var usuario: Usuario!
+
+    
     override func viewWillAppear(_ animated: Bool) {
         rolloCode.text = ""
         rolloCode2.text = ""
         rolloCode3.text = ""
         rolloCode4.text = ""
+        
+        
+        for _ in capturedText {
+            numDifferences.append(100)
+        }
+        
+        usuarioName.text = usuario.nombre
+        
+        if ( // ignore manual entry
+            capturedText[0] == "" &&
+            capturedText[1] == "" &&
+            capturedText[2] == "" &&
+            capturedText[3] == ""
+        ) {
+            dataFromImage = true;
+        }
         
         rolloCode.text = capturedText[0]
         rolloCode2.text = capturedText[1]
@@ -42,6 +68,75 @@ class mostrarResultadosViewController: UIViewController {
         view.addGestureRecognizer(tap)
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func saveInfo(_ sender: Any) {
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        dateFormatter.timeStyle = DateFormatter.Style.short
+        let strDate = dateFormatter.string(from: datePicker.date)
+        
+        if (dataFromImage) {
+            numDifferences.append(checkErrors(save: rolloCode.text!, original: capturedText[0]))
+            numDifferences.append(checkErrors(save: rolloCode2.text!, original: capturedText[1]))
+            numDifferences.append(checkErrors(save: rolloCode3.text!, original: capturedText[2]))
+            numDifferences.append(checkErrors(save: rolloCode4.text!, original: capturedText[3]))
+        }
+        
+        // TODO: add to database
+        
+        let rollos: [Rollo] = InsertRollos()
+        
+        InsertRegistros(rollos: rollos, date: strDate)
+    }
+    
+    
+    func InsertRollos() -> [Rollo] {
+        var rollos: [Rollo] = []
+        
+        rollos.append(Rollo(id: UUID().uuidString, numeroIdent: rolloCode.text!))
+        rollos.append(Rollo(id: UUID().uuidString, numeroIdent: rolloCode2.text!))
+        rollos.append(Rollo(id: UUID().uuidString, numeroIdent: rolloCode3.text!))
+        rollos.append(Rollo(id: UUID().uuidString, numeroIdent: rolloCode4.text!))
+        
+        for rollo in rollos {
+            dbRollos.insert(id: rollo.id, numeroIdent: rollo.numeroIdent)
+        }
+        
+        return rollos
+    }
+    
+    
+    func InsertRegistros(rollos: [Rollo], date: String) {
+        var registros: [Registro] = []
+        for (index, rollo) in rollos.enumerated() {
+            registros.append(Registro(id: UUID().uuidString, idUsuario: usuario.id, idRollos: rollo.id, ubicacion: "", fecha: date, accuracy: Int(numDifferences[index])))
+        }
+        
+        for registro in registros {
+            dbReg.insert(id: registro.id, idUsuario: registro.idUsuario, idRollos: registro.idRollos, ubicacion: registro.ubicacion, fecha: registro.fecha, accuracy: registro.accuracy)
+        }
+        
+    }
+    
+    /// Get the percentage of number of errors from original to save
+    /// - Parameters:
+    ///   - save: The string to save
+    ///   - original: The original string we recieved from the image
+    /// - Returns: The percentage
+    func checkErrors(save: String, original: String) -> Double {
+        var diff: Double = 0.0
+        diff = Double(abs(save.count - original.count)) // if someone has more letters than the other
+
+        for (index, char) in original.enumerated() {
+            if char != save[save.index(save.startIndex, offsetBy: index)] {
+                diff = diff + 0.0;
+            }
+        }
+        
+        return (diff / Double(save.count)) * 100 // get percentage
     }
     
     /**
