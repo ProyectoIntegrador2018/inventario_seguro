@@ -9,10 +9,10 @@ import Foundation
 
 class Rollo {
     
-    var id : Int = 0
+    var id : String = ""
     var numeroIdent : String = ""
     
-    init(id:Int, numeroIdent:String) {
+    init(id: String, numeroIdent:String) {
         self.id = id
         self.numeroIdent = numeroIdent
     }

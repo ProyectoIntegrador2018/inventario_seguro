@@ -31,7 +31,7 @@ class DBRegistroHelper {
     }
     
     func createTable() {
-        let createTableString = "CREATE TABLE IF NOT EXISTS registro(Id INTEGER PRIMARY KEY, IdUsuario INTEGER, idRollos TEXT, Ubicacion TEXT, Fecha TEXT, Accuracy INTEGER);"
+        let createTableString = "CREATE TABLE IF NOT EXISTS registro(Id TEXT PRIMARY KEY, IdUsuario TEXT, idRollos TEXT, Ubicacion TEXT, Fecha TEXT, Accuracy INTEGER);"
         var createTableStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, createTableString, -1, &createTableStatement, nil) == SQLITE_OK {
             if sqlite3_step(createTableStatement) == SQLITE_DONE {
@@ -46,8 +46,8 @@ class DBRegistroHelper {
     }
     
     func insert(
-        id: Int,
-        idUsuario: Int,
+        id: String,
+        idUsuario: String,
         idRollos: String,
         ubicacion: String,
         fecha: String,
@@ -63,8 +63,8 @@ class DBRegistroHelper {
         let insertStatementString = "INSERT INTO registro(Id, IdUsuario, idRollos, Ubicacion, Fecha, Accuracy) VALUES(?, ?, ?, ?, ?, ?)"
         var insertStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
-            sqlite3_bind_int(insertStatement, 1, Int32(id))
-            sqlite3_bind_int(insertStatement, 2, Int32(idUsuario))
+            sqlite3_bind_text(insertStatement, 1, (id as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 2, (idUsuario as NSString).utf8String, -1, nil)
             sqlite3_bind_text(insertStatement, 3, (idRollos as NSString).utf8String, -1, nil)
             sqlite3_bind_text(insertStatement, 4, (ubicacion as NSString).utf8String, -1, nil)
             sqlite3_bind_text(insertStatement, 5, (fecha as NSString).utf8String, -1, nil)
@@ -87,13 +87,13 @@ class DBRegistroHelper {
         var psns : [Registro] = []
         if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
             while sqlite3_step(queryStatement) == SQLITE_ROW {
-                let id = sqlite3_column_int(queryStatement, 0)
-                let idUsuario = sqlite3_column_int(queryStatement, 1)
+                let id = String(describing: String(cString: sqlite3_column_text(queryStatement, 0)))
+                let idUsuario = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
                 let idRollos = String(describing: String(cString: sqlite3_column_text(queryStatement, 2)))
                 let ubicacion = String(describing: String(cString: sqlite3_column_text(queryStatement, 3)))
                 let fecha = String(describing: String(cString: sqlite3_column_text(queryStatement, 4)))
                 let accuracy = sqlite3_column_int(queryStatement, 5)
-                psns.append(Registro(id: Int(id), idUsuario: Int(idUsuario), idRollos: idRollos, ubicacion: ubicacion, fecha: fecha, accuracy: Int(accuracy)))
+                psns.append(Registro(id: id, idUsuario: idUsuario, idRollos: idRollos, ubicacion: ubicacion, fecha: fecha, accuracy: Int(accuracy)))
             }
         } else {
             print("SELECT statement could not be prepared")
@@ -102,11 +102,11 @@ class DBRegistroHelper {
         return psns
     }
     
-    func deleteByID(id:Int) {
+    func deleteByID(id: String) {
         let deleteStatementStirng = "DELETE FROM registro WHERE Id = ?;"
         var deleteStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, deleteStatementStirng, -1, &deleteStatement, nil) == SQLITE_OK {
-            sqlite3_bind_int(deleteStatement, 1, Int32(id))
+            sqlite3_bind_text(deleteStatement, 1, (id as NSString).utf8String, -1, nil)
             if sqlite3_step(deleteStatement) == SQLITE_DONE {
                 print("Successfully deleted row.")
             } else {

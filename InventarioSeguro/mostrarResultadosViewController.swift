@@ -11,7 +11,8 @@ import UIKit
 class mostrarResultadosViewController: UIViewController {
     
    
-    var dbR:DBRegistroHelper = DBRegistroHelper()
+    var dbReg:DBRegistroHelper = DBRegistroHelper()
+    var dbRollos: DBRolloHelper = DBRolloHelper()
     var registros: [Registro] = []
     
     @IBOutlet weak var rolloCode: UITextField!
@@ -22,12 +23,14 @@ class mostrarResultadosViewController: UIViewController {
     
     @IBOutlet weak var rolloCode4: UITextField!
     @IBOutlet weak var usuarioName: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     var capturedText: [String] = []
     var numDifferences: [Double] = []
     var dataFromImage = false; // do not affect accuracy if its manual
     var usuario: Usuario!
-  
+
+    
     override func viewWillAppear(_ animated: Bool) {
         rolloCode.text = ""
         rolloCode2.text = ""
@@ -35,7 +38,7 @@ class mostrarResultadosViewController: UIViewController {
         rolloCode4.text = ""
         
         
-        for input in capturedText {
+        for _ in capturedText {
             numDifferences.append(100)
         }
         
@@ -67,8 +70,14 @@ class mostrarResultadosViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    
     @IBAction func saveInfo(_ sender: Any) {
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        dateFormatter.timeStyle = DateFormatter.Style.short
+        let strDate = dateFormatter.string(from: datePicker.date)
+        
         if (dataFromImage) {
             numDifferences.append(checkErrors(save: rolloCode.text!, original: capturedText[0]))
             numDifferences.append(checkErrors(save: rolloCode2.text!, original: capturedText[1]))
@@ -77,10 +86,38 @@ class mostrarResultadosViewController: UIViewController {
         }
         
         // TODO: add to database
-        dbR.insert(id: 3004, idUsuario: usuario.id, idRollos: "1003", ubicacion: "Mty", fecha: "14/05/21", accuracy: Int(numDifferences[0]))
-        dbR.insert(id: 3003, idUsuario: usuario.id, idRollos: "1003", ubicacion: "Mty", fecha: "14/05/21", accuracy: Int(numDifferences[1]))
-        dbR.insert(id: 3004, idUsuario: usuario.id, idRollos: "1003", ubicacion: "Mty", fecha: "14/05/21", accuracy: Int(numDifferences[2]))
-        dbR.insert(id: 3005, idUsuario: usuario.id, idRollos: "1003", ubicacion: "Mty", fecha: "14/05/21", accuracy: Int(numDifferences[3]))
+        
+        let rollos: [Rollo] = InsertRollos()
+        
+        InsertRegistros(rollos: rollos, date: strDate)
+    }
+    
+    
+    func InsertRollos() -> [Rollo] {
+        var rollos: [Rollo] = []
+        
+        rollos.append(Rollo(id: UUID().uuidString, numeroIdent: rolloCode.text!))
+        rollos.append(Rollo(id: UUID().uuidString, numeroIdent: rolloCode2.text!))
+        rollos.append(Rollo(id: UUID().uuidString, numeroIdent: rolloCode3.text!))
+        rollos.append(Rollo(id: UUID().uuidString, numeroIdent: rolloCode4.text!))
+        
+        for rollo in rollos {
+            dbRollos.insert(id: rollo.id, numeroIdent: rollo.numeroIdent)
+        }
+        
+        return rollos
+    }
+    
+    
+    func InsertRegistros(rollos: [Rollo], date: String) {
+        var registros: [Registro] = []
+        for (index, rollo) in rollos.enumerated() {
+            registros.append(Registro(id: UUID().uuidString, idUsuario: usuario.id, idRollos: rollo.id, ubicacion: "", fecha: date, accuracy: Int(numDifferences[index])))
+        }
+        
+        for registro in registros {
+            dbReg.insert(id: registro.id, idUsuario: registro.idUsuario, idRollos: registro.idRollos, ubicacion: registro.ubicacion, fecha: registro.fecha, accuracy: registro.accuracy)
+        }
         
     }
     
