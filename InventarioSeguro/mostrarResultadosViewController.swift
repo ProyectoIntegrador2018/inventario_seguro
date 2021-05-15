@@ -11,8 +11,6 @@ import UIKit
 class mostrarResultadosViewController: UIViewController {
     
    
-    var dataFromImage = false; // do not affect accuracy if its manual
-    var usuario: Usuario!
     @IBOutlet weak var rolloCode: UITextField!
     
     @IBOutlet weak var rolloCode2: UITextField!
@@ -23,12 +21,20 @@ class mostrarResultadosViewController: UIViewController {
     @IBOutlet weak var usuarioName: UITextField!
     
     var capturedText: [String] = []
+    var numDifferences: [Double] = []
+    var dataFromImage = false; // do not affect accuracy if its manual
+    var usuario: Usuario!
   
     override func viewWillAppear(_ animated: Bool) {
         rolloCode.text = ""
         rolloCode2.text = ""
         rolloCode3.text = ""
         rolloCode4.text = ""
+        
+        
+        for input in capturedText {
+            numDifferences.append(100)
+        }
         
         usuarioName.text = usuario.nombre
         
@@ -60,7 +66,32 @@ class mostrarResultadosViewController: UIViewController {
     
     
     @IBAction func saveInfo(_ sender: Any) {
+        if (dataFromImage) {
+            numDifferences.append(checkErrors(save: rolloCode.text!, original: capturedText[0]))
+            numDifferences.append(checkErrors(save: rolloCode2.text!, original: capturedText[1]))
+            numDifferences.append(checkErrors(save: rolloCode3.text!, original: capturedText[2]))
+            numDifferences.append(checkErrors(save: rolloCode4.text!, original: capturedText[3]))
+        }
         
+        // TODO: add to database
+    }
+    
+    /// Get the percentage of number of errors from original to save
+    /// - Parameters:
+    ///   - save: The string to save
+    ///   - original: The original string we recieved from the image
+    /// - Returns: The percentage
+    func checkErrors(save: String, original: String) -> Double {
+        var diff: Double = 0.0
+        diff = Double(abs(save.count - original.count)) // if someone has more letters than the other
+
+        for (index, char) in original.enumerated() {
+            if char != save[save.index(save.startIndex, offsetBy: index)] {
+                diff = diff + 0.0;
+            }
+        }
+        
+        return (diff / Double(save.count)) * 100 // get percentage
     }
     
     /**
