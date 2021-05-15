@@ -31,7 +31,7 @@ class DBRegistroHelper {
     }
     
     func createTable() {
-        let createTableString = "CREATE TABLE IF NOT EXISTS registro(Id INTEGER PRIMARY KEY, IdUsuario INTEGER, idRollos TEXT, Ubicacion TEXT, Fecha TEXT);"
+        let createTableString = "CREATE TABLE IF NOT EXISTS registro(Id INTEGER PRIMARY KEY, IdUsuario INTEGER, idRollos TEXT, Ubicacion TEXT, Fecha TEXT, Accuracy INTEGER);"
         var createTableStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, createTableString, -1, &createTableStatement, nil) == SQLITE_OK {
             if sqlite3_step(createTableStatement) == SQLITE_DONE {
@@ -50,7 +50,8 @@ class DBRegistroHelper {
         idUsuario: Int,
         idRollos: String,
         ubicacion: String,
-        fecha: String
+        fecha: String,
+        accuracy: Int
     ) {
         let registros = read()
         for r in registros {
@@ -59,7 +60,7 @@ class DBRegistroHelper {
             }
         }
         
-        let insertStatementString = "INSERT INTO registro(Id, IdUsuario, idRollos, Ubicacion, Fecha) VALUES(?, ?, ?, ?, ?)"
+        let insertStatementString = "INSERT INTO registro(Id, IdUsuario, idRollos, Ubicacion, Fecha, Accuracy) VALUES(?, ?, ?, ?, ?, ?)"
         var insertStatement: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
             sqlite3_bind_int(insertStatement, 1, Int32(id))
@@ -67,6 +68,7 @@ class DBRegistroHelper {
             sqlite3_bind_text(insertStatement, 3, (idRollos as NSString).utf8String, -1, nil)
             sqlite3_bind_text(insertStatement, 4, (ubicacion as NSString).utf8String, -1, nil)
             sqlite3_bind_text(insertStatement, 5, (fecha as NSString).utf8String, -1, nil)
+            sqlite3_bind_int(insertStatement, 6, Int32(accuracy))
             
             if sqlite3_step(insertStatement) == SQLITE_DONE {
                 print("Successfully inserted row.")
@@ -90,7 +92,8 @@ class DBRegistroHelper {
                 let idRollos = String(describing: String(cString: sqlite3_column_text(queryStatement, 2)))
                 let ubicacion = String(describing: String(cString: sqlite3_column_text(queryStatement, 3)))
                 let fecha = String(describing: String(cString: sqlite3_column_text(queryStatement, 4)))
-                psns.append(Registro(id: Int(id), idUsuario: Int(idUsuario), idRollos: idRollos, ubicacion: ubicacion, fecha: fecha))
+                let accuracy = sqlite3_column_int(queryStatement, 5)
+                psns.append(Registro(id: Int(id), idUsuario: Int(idUsuario), idRollos: idRollos, ubicacion: ubicacion, fecha: fecha, accuracy: Int(accuracy)))
             }
         } else {
             print("SELECT statement could not be prepared")

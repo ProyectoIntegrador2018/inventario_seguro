@@ -161,12 +161,12 @@ class ViewController: UIViewController {
             print("id: ", rollo.id, "|| numeroIdent: ", rollo.numeroIdent)
         }
         
-        dbR.insert(id: 3000, idUsuario: 2000, idRollos: "1001", ubicacion: "Mty", fecha: "27/04/20")
-        dbR.insert(id: 3001, idUsuario: 2001, idRollos: "1000", ubicacion: "CDMX", fecha: "27/04/20")
+        dbR.insert(id: 3000, idUsuario: 2000, idRollos: "1001", ubicacion: "Mty", fecha: "27/04/20", accuracy: 85)
+        dbR.insert(id: 3001, idUsuario: 2001, idRollos: "1000", ubicacion: "CDMX", fecha: "27/04/20", accuracy: 90)
         registros = dbR.read()
         
         for registro in registros {
-            print("id: ", registro.id, "|| idUsuario: ", registro.idUsuario, "|| idRollo: ", registro.idRollos, "|| ubicacion: ", registro.ubicacion, "|| fecha: ", registro.fecha)
+            print("id: ", registro.id, "|| idUsuario: ", registro.idUsuario, "|| idRollo: ", registro.idRollos, "|| ubicacion: ", registro.ubicacion, "|| fecha: ", registro.fecha, "|| accuracy: ", registro.accuracy)
         }
     }
 }
