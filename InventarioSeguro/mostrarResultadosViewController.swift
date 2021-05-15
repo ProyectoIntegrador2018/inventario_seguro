@@ -11,6 +11,8 @@ import UIKit
 class mostrarResultadosViewController: UIViewController {
     
    
+    var dataFromImage = false; // do not affect accuracy if its manual
+    var usuario: Usuario!
     @IBOutlet weak var rolloCode: UITextField!
     
     @IBOutlet weak var rolloCode2: UITextField!
@@ -18,6 +20,7 @@ class mostrarResultadosViewController: UIViewController {
     @IBOutlet weak var rolloCode3: UITextField!
     
     @IBOutlet weak var rolloCode4: UITextField!
+    @IBOutlet weak var usuarioName: UITextField!
     
     var capturedText: [String] = []
   
@@ -26,6 +29,17 @@ class mostrarResultadosViewController: UIViewController {
         rolloCode2.text = ""
         rolloCode3.text = ""
         rolloCode4.text = ""
+        
+        usuarioName.text = usuario.nombre
+        
+        if ( // ignore manual entry
+            capturedText[0] == "" &&
+            capturedText[1] == "" &&
+            capturedText[2] == "" &&
+            capturedText[3] == ""
+        ) {
+            dataFromImage = true;
+        }
         
         rolloCode.text = capturedText[0]
         rolloCode2.text = capturedText[1]
@@ -42,6 +56,11 @@ class mostrarResultadosViewController: UIViewController {
         view.addGestureRecognizer(tap)
 
         // Do any additional setup after loading the view.
+    }
+    
+    
+    @IBAction func saveInfo(_ sender: Any) {
+        
     }
     
     /**
