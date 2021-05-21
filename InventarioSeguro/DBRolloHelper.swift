@@ -16,6 +16,7 @@ class DBRolloHelper {
     init(){
         db = openDatabase()
         createTable()
+
     }
     
     func openDatabase() -> OpaquePointer? {
@@ -100,6 +101,32 @@ class DBRolloHelper {
         sqlite3_finalize(queryStatement)
         return rollos
     }
+    
+    func read_rid(ids:[String]) -> [Rollo] {
+        let format_ids = ids.joined(separator: ",")
+        print(format_ids)
+        let format_ids2 = "F2882720-4008-45F8-9B94-AB07C34110D4,6AC651C7-CB39-49D3-9EAA-4C07BB4CA73"
+        let queryStatementString = "SELECT * FROM rollo WHERE id IN (?);"
+        var queryStatement: OpaquePointer? = nil
+        var rollos : [Rollo] = []
+    
+        if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
+            sqlite3_bind_text(queryStatement, 1, (format_ids2 as NSString).utf8String, -1, nil)
+            while sqlite3_step(queryStatement) == SQLITE_ROW {
+                let id = String(describing: String(cString: sqlite3_column_text(queryStatement, 0)))
+                let numeroIdent = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
+                rollos.append(Rollo(id: id, numeroIdent: numeroIdent))
+                //print("Query Result: ")
+                //print("\(id) | \(numeroIdent)")
+            }
+        }
+        else {
+            print("SELECT statement could not be prepared")
+        }
+        sqlite3_finalize(queryStatement)
+        return rollos
+    }
+    
     
     func deleteByID(id: String) {
         let deleteStatementString = "DELETE FROM rollo WHERE Id = ?;"

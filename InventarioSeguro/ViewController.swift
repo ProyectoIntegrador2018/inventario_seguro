@@ -12,8 +12,11 @@ import VisionKit
 import ImageSlideshow
 
 class ViewController: UIViewController {
-    // MARK: - Variables y Outlets
+    //MARK: -Database helpers
+    var dbReg:DBRegistroHelper = DBRegistroHelper()
+    var dbRol:DBRolloHelper = DBRolloHelper()
     
+    // MARK: - Variables y Outlets
     @IBOutlet weak var botonGuardar: UIButton!
     @IBOutlet weak var botonScan: UIButton!
     //Resultado del recononocimiento de la imagen
@@ -109,9 +112,19 @@ class ViewController: UIViewController {
         //let scannedOCR = self.textViewResultado?.text ?? ""
         let scannedOCR = self.ocrTexts
         resetVariables()
-        let destinationVC = segue.destination as! mostrarResultadosViewController
-        destinationVC.capturedText = scannedOCR
-        destinationVC.usuario = self.displayUser
+        
+        if segue.destination is mostrarResultadosViewController {
+            let destinationVC = segue.destination as! mostrarResultadosViewController
+            destinationVC.capturedText = scannedOCR
+            destinationVC.usuario = self.displayUser
+        }
+        
+        if segue.destination is ResultadosViewController {
+            let destinationVC = segue.destination as! ResultadosViewController
+            let regs: [Registro] = dbReg.read_UID(uid: displayUser.id)
+            destinationVC.displayResults = regs
+        }
+        
         
     }
     
