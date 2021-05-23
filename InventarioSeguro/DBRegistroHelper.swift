@@ -102,6 +102,30 @@ class DBRegistroHelper {
         return psns
     }
     
+    func read_UID(uid: String) -> [Registro] {
+        let queryStatementString = "SELECT * FROM registro WHERE IdUsuario = ?;"
+        var queryStatement: OpaquePointer? = nil
+        var psns : [Registro] = []
+        if sqlite3_prepare_v2(db, queryStatementString, -1, &queryStatement, nil) == SQLITE_OK {
+            sqlite3_bind_text(queryStatement, 1, (uid as NSString).utf8String, -1, nil)
+            while sqlite3_step(queryStatement) == SQLITE_ROW {
+                let id = String(describing: String(cString: sqlite3_column_text(queryStatement, 0)))
+                let idUsuario = String(describing: String(cString: sqlite3_column_text(queryStatement, 1)))
+                let idRollos = String(describing: String(cString: sqlite3_column_text(queryStatement, 2)))
+                let ubicacion = String(describing: String(cString: sqlite3_column_text(queryStatement, 3)))
+                let fecha = String(describing: String(cString: sqlite3_column_text(queryStatement, 4)))
+                let accuracy = sqlite3_column_int(queryStatement, 5)
+                psns.append(Registro(id: id, idUsuario: idUsuario, idRollos: idRollos, ubicacion: ubicacion, fecha: fecha, accuracy: Int(accuracy)))
+            }
+        } else {
+            print("SELECT statement could not be prepared")
+        }
+        sqlite3_finalize(queryStatement)
+        return psns
+    }
+    
+    
+    
     func deleteByID(id: String) {
         let deleteStatementStirng = "DELETE FROM registro WHERE Id = ?;"
         var deleteStatement: OpaquePointer? = nil

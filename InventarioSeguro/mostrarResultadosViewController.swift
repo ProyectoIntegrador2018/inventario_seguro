@@ -25,6 +25,8 @@ class mostrarResultadosViewController: UIViewController {
     @IBOutlet weak var usuarioName: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     
+    //TODO: change this into a picker!
+    @IBOutlet weak var ubicacionRollo: UITextField!
     var capturedText: [String] = []
     var numDifferences: [Double] = []
     var dataFromImage = false; // do not affect accuracy if its manual
@@ -62,10 +64,9 @@ class mostrarResultadosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing));
         view.addGestureRecognizer(tap)
+      
 
         // Do any additional setup after loading the view.
     }
@@ -88,8 +89,7 @@ class mostrarResultadosViewController: UIViewController {
         // TODO: add to database
         
         let rollos: [Rollo] = InsertRollos()
-        
-        InsertRegistros(rollos: rollos, date: strDate)
+        InsertRegistros(rollos: rollos, date: strDate, location: ubicacionRollo.text!)
     }
     
     
@@ -109,10 +109,10 @@ class mostrarResultadosViewController: UIViewController {
     }
     
     
-    func InsertRegistros(rollos: [Rollo], date: String) {
+    func InsertRegistros(rollos: [Rollo], date: String, location: String) {
         var registros: [Registro] = []
         for (index, rollo) in rollos.enumerated() {
-            registros.append(Registro(id: UUID().uuidString, idUsuario: usuario.id, idRollos: rollo.id, ubicacion: "", fecha: date, accuracy: Int(numDifferences[index])))
+            registros.append(Registro(id: UUID().uuidString, idUsuario: usuario.id, idRollos: rollo.numeroIdent, ubicacion: location, fecha: date, accuracy: Int(numDifferences[index])))
         }
         
         for registro in registros {

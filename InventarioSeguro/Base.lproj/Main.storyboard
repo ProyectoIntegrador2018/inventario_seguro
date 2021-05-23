@@ -186,6 +186,9 @@
                                         <state key="normal" title="Registros">
                                             <color key="titleColor" systemColor="systemBackgroundColor"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="rFX-OS-Awb" kind="show" id="alL-1d-jbU"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9m-6F-cSk">
                                         <rect key="frame" x="260" y="0.0" width="115" height="30"/>
@@ -385,12 +388,71 @@
                         <outlet property="rolloCode2" destination="mMa-bO-YZW" id="mb7-st-QBP"/>
                         <outlet property="rolloCode3" destination="InS-Rg-49G" id="pZg-o1-pDq"/>
                         <outlet property="rolloCode4" destination="1KV-Te-8zR" id="xrn-bc-YA1"/>
+                        <outlet property="ubicacionRollo" destination="Xz9-s5-w8g" id="O9e-4W-g4O"/>
                         <outlet property="usuarioName" destination="PPR-x5-cFx" id="UpY-ND-Rnw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7M3-ru-cdd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="331.8840579710145" y="130.58035714285714"/>
+        </scene>
+        <!--Resultados View Controller-->
+        <scene sceneID="4dB-1c-yBp">
+            <objects>
+                <tableViewController id="rFX-OS-Awb" customClass="ResultadosViewController" customModule="InventarioSeguro" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zzm-KS-sBA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ResultCell" rowHeight="85" id="9N5-Gq-T9H" customClass="ResultadosTableViewCell" customModule="InventarioSeguro" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="85"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9N5-Gq-T9H" id="sW8-jG-Wi5">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ROLLO_CODE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSy-9W-RcV">
+                                            <rect key="frame" x="20" y="14" width="142" height="27"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nl9-PM-7Ud">
+                                            <rect key="frame" x="20" y="49" width="84" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                            <color key="textColor" red="0.4782899618" green="0.47795546049999998" blue="0.50259524580000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00-00-0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0t-qw-mHZ">
+                                            <rect key="frame" x="221" y="32" width="173" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                            <color key="textColor" red="0.4782899618" green="0.47795546049999998" blue="0.50259524580000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.94999999999999996"/>
+                                <connections>
+                                    <outlet property="dateText" destination="Z0t-qw-mHZ" id="OV4-62-58I"/>
+                                    <outlet property="locationText" destination="nl9-PM-7Ud" id="8nM-vs-aXt"/>
+                                    <outlet property="rolloText" destination="XSy-9W-RcV" id="MVF-9Z-W3k"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rFX-OS-Awb" id="sJy-6C-Rok"/>
+                            <outlet property="delegate" destination="rFX-OS-Awb" id="sS0-hH-jwK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="7yl-pO-zMV"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="suP-qW-eCU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-600" y="847.76785714285711"/>
         </scene>
     </scenes>
     <resources>
