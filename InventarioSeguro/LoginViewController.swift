@@ -37,6 +37,7 @@ class LoginViewController: UIViewController {
         dbU.insert(id: UUID().uuidString, nombre: "Maggie Jimenez", correo: "maggie@gmail.com", password: "ternium", cargo: "Product Owner Proxy")
         dbU.insert(id: UUID().uuidString, nombre: "Roger Vazquez", correo: "roger@gmail.com", password: "ternium", cargo: "SCRUM master and Leader")
         dbU.insert(id: UUID().uuidString, nombre: "Jorge Ramos", correo: "jorge@gmail.com", password: "ternium", cargo: "Configuration Admin")
+        dbU.insert(id: UUID().uuidString, nombre: "Luis Valdez", correo: "luis@gmail.com", password: "ternium", cargo: "Product Owner")
     }
     
     func validateInput() -> Bool {

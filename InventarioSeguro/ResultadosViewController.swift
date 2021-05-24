@@ -12,6 +12,7 @@ class ResultadosTableViewCell: UITableViewCell {
     @IBOutlet weak var rolloText: UILabel!
     @IBOutlet weak var dateText: UILabel!
     @IBOutlet weak var locationText: UILabel!
+    @IBOutlet weak var accuracyText: UILabel!
     
     
     override open var frame: CGRect {
@@ -82,6 +83,7 @@ class ResultadosViewController: UITableViewController {
         cell.locationText.text = res.ubicacion
         print(res.fecha)
         cell.dateText.text = res.fecha
+        cell.accuracyText.text = "\(res.accuracy)%"
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 8
         cell.clipsToBounds = true
