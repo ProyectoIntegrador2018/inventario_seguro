@@ -68,6 +68,9 @@ class ViewController: UIViewController {
         }
     }
 
+    private func dummys(){
+        dbReg.insert(id: UUID().uuidString, idUsuario: displayUser.id, idRollos: "12345", ubicacion: "Mty", fecha: "23/05/21", accuracy: 80)
+    }
     /// Settings para el reconocimiento de imagen
     private func configureOCR() {
         ocrRequest = VNRecognizeTextRequest { (request, error) in

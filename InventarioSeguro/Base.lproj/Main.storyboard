@@ -131,12 +131,12 @@
         <scene sceneID="SzY-bV-JDM">
             <objects>
                 <viewController storyboardIdentifier="ViewController" id="Dl4-5t-vza" customClass="ViewController" customModule="InventarioSeguro" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="DfU-aG-sfS">
+                    <view key="view" contentMode="scaleToFill" id="DfU-aG-sfS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uvl-ZE-QBh">
-                                <rect key="frame" x="20" y="309" width="374" height="129"/>
+                                <rect key="frame" x="20" y="309" width="374" height="85"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="uvl-ZE-QBh" secondAttribute="height" multiplier="374:129" id="16z-dj-egE"/>
@@ -160,13 +160,13 @@
                                     <constraint firstAttribute="width" secondItem="4Iv-fr-uYL" secondAttribute="height" multiplier="206:59" id="vOH-Il-Yt1"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lnA-SS-2bc">
-                                <rect key="frame" x="20" y="459" width="374" height="312"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lnA-SS-2bc">
+                                <rect key="frame" x="20" y="415" width="374" height="356"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="lnA-SS-2bc" secondAttribute="height" multiplier="187:178" id="kRi-X4-cw0"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="aaL-TG-7Rg">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="aaL-TG-7Rg">
                                 <rect key="frame" x="20" y="808" width="375" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ir0-c0-qIC">
@@ -205,7 +205,7 @@
                                     <constraint firstAttribute="width" secondItem="aaL-TG-7Rg" secondAttribute="height" multiplier="25:2" id="lXr-Sq-fR9"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JRV-wh-ag4" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JRV-wh-ag4" customClass="ImageSlideshow" customModule="ImageSlideshow">
                                 <rect key="frame" x="26" y="464" width="361" height="294"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -430,13 +430,21 @@
                                             <rect key="frame" x="221" y="32" width="173" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                            <color key="textColor" red="0.4782899618" green="0.47795546049999998" blue="0.50259524580000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOr-Pz-Cb3">
+                                            <rect key="frame" x="352" y="31" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.94999999999999996"/>
                                 <connections>
+                                    <outlet property="accuracyText" destination="SOr-Pz-Cb3" id="N2Q-uv-8Ag"/>
                                     <outlet property="dateText" destination="Z0t-qw-mHZ" id="OV4-62-58I"/>
                                     <outlet property="locationText" destination="nl9-PM-7Ud" id="8nM-vs-aXt"/>
                                     <outlet property="rolloText" destination="XSy-9W-RcV" id="MVF-9Z-W3k"/>
