@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		06B11E20260AB031005D4DCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06B11E1E260AB031005D4DCC /* LaunchScreen.storyboard */; };
 		06B11E2B260AB032005D4DCC /* InventarioSeguroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B11E2A260AB032005D4DCC /* InventarioSeguroTests.swift */; };
 		06B11E36260AB032005D4DCC /* InventarioSeguroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B11E35260AB032005D4DCC /* InventarioSeguroUITests.swift */; };
+		06DF2F862655BE100032FB0B /* ResultadosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DF2F852655BE100032FB0B /* ResultadosViewController.swift */; };
 		0B7E1A7B2638AD70009355A7 /* Registro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7E1A7A2638AD70009355A7 /* Registro.swift */; };
 		0B7E1A832638AFBC009355A7 /* DBRegistroHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7E1A822638AFBC009355A7 /* DBRegistroHelper.swift */; };
 		363CCE012638A6E3006959E9 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363CCE002638A6E3006959E9 /* Usuario.swift */; };
@@ -22,7 +23,10 @@
 		364BAE4F2615551900A9504A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364BAE4E2615551900A9504A /* ViewController.swift */; };
 		36CF8012263796C1008C037F /* Rollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF8011263796C1008C037F /* Rollo.swift */; };
 		36CF8017263797AE008C037F /* DBRolloHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CF8016263797AE008C037F /* DBRolloHelper.swift */; };
+		528D1536C21A960A69F86D43 /* Pods_InventarioSeguro_InventarioSeguroUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B933ECD11A736328DF3C92E9 /* Pods_InventarioSeguro_InventarioSeguroUITests.framework */; };
+		B723D0F66F08FAE4DA36E806 /* Pods_InventarioSeguro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43964B485EE6815F4B6A3528 /* Pods_InventarioSeguro.framework */; };
 		C1A143802613D84C00B8EBC7 /* mostrarResultadosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A1437F2613D84C00B8EBC7 /* mostrarResultadosViewController.swift */; };
+		D3BC7B9AB2194FAC9C0180D3 /* Pods_InventarioSeguroTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C7BDED67D66A233E79C7F0 /* Pods_InventarioSeguroTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,14 +61,24 @@
 		06B11E31260AB032005D4DCC /* InventarioSeguroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InventarioSeguroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06B11E35260AB032005D4DCC /* InventarioSeguroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventarioSeguroUITests.swift; sourceTree = "<group>"; };
 		06B11E37260AB032005D4DCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06DF2F852655BE100032FB0B /* ResultadosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultadosViewController.swift; sourceTree = "<group>"; };
 		0B7E1A7A2638AD70009355A7 /* Registro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registro.swift; sourceTree = "<group>"; };
 		0B7E1A822638AFBC009355A7 /* DBRegistroHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBRegistroHelper.swift; sourceTree = "<group>"; };
+		32C7BDED67D66A233E79C7F0 /* Pods_InventarioSeguroTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InventarioSeguroTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		363CCE002638A6E3006959E9 /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 		363CCE052638A7E3006959E9 /* DBUsuarioHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBUsuarioHelper.swift; sourceTree = "<group>"; };
 		364BAE4E2615551900A9504A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		36CF8011263796C1008C037F /* Rollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rollo.swift; sourceTree = "<group>"; };
 		36CF8016263797AE008C037F /* DBRolloHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBRolloHelper.swift; sourceTree = "<group>"; };
+		3C5FFAF6B8E2D85E508F4AD9 /* Pods-InventarioSeguro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InventarioSeguro.release.xcconfig"; path = "Target Support Files/Pods-InventarioSeguro/Pods-InventarioSeguro.release.xcconfig"; sourceTree = "<group>"; };
+		43964B485EE6815F4B6A3528 /* Pods_InventarioSeguro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InventarioSeguro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		608D90DE16AF0E830BE88D86 /* Pods-InventarioSeguro-InventarioSeguroUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InventarioSeguro-InventarioSeguroUITests.release.xcconfig"; path = "Target Support Files/Pods-InventarioSeguro-InventarioSeguroUITests/Pods-InventarioSeguro-InventarioSeguroUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A29BEB63A5DAC47E3712AF99 /* Pods-InventarioSeguroTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InventarioSeguroTests.debug.xcconfig"; path = "Target Support Files/Pods-InventarioSeguroTests/Pods-InventarioSeguroTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A516503920DD88B679116678 /* Pods-InventarioSeguro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InventarioSeguro.debug.xcconfig"; path = "Target Support Files/Pods-InventarioSeguro/Pods-InventarioSeguro.debug.xcconfig"; sourceTree = "<group>"; };
+		AD11AD0768C9CB8CB81BF4CB /* Pods-InventarioSeguroTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InventarioSeguroTests.release.xcconfig"; path = "Target Support Files/Pods-InventarioSeguroTests/Pods-InventarioSeguroTests.release.xcconfig"; sourceTree = "<group>"; };
+		B933ECD11A736328DF3C92E9 /* Pods_InventarioSeguro_InventarioSeguroUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InventarioSeguro_InventarioSeguroUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1A1437F2613D84C00B8EBC7 /* mostrarResultadosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mostrarResultadosViewController.swift; sourceTree = "<group>"; };
+		FB615289C7F46AC7B42E2D2C /* Pods-InventarioSeguro-InventarioSeguroUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InventarioSeguro-InventarioSeguroUITests.debug.xcconfig"; path = "Target Support Files/Pods-InventarioSeguro-InventarioSeguroUITests/Pods-InventarioSeguro-InventarioSeguroUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B723D0F66F08FAE4DA36E806 /* Pods_InventarioSeguro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3BC7B9AB2194FAC9C0180D3 /* Pods_InventarioSeguroTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				528D1536C21A960A69F86D43 /* Pods_InventarioSeguro_InventarioSeguroUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +116,8 @@
 				06B11E29260AB032005D4DCC /* InventarioSeguroTests */,
 				06B11E34260AB032005D4DCC /* InventarioSeguroUITests */,
 				06B11E11260AB031005D4DCC /* Products */,
+				FCB000C71732A040E5268233 /* Pods */,
+				D6B03BE13CDB5144C72000B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +149,7 @@
 				0B7E1A7A2638AD70009355A7 /* Registro.swift */,
 				0B7E1A822638AFBC009355A7 /* DBRegistroHelper.swift */,
 				069AA0E5263A21E40009D513 /* LoginViewController.swift */,
+				06DF2F852655BE100032FB0B /* ResultadosViewController.swift */,
 			);
 			path = InventarioSeguro;
 			sourceTree = "<group>";
@@ -152,6 +172,29 @@
 			path = InventarioSeguroUITests;
 			sourceTree = "<group>";
 		};
+		D6B03BE13CDB5144C72000B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				43964B485EE6815F4B6A3528 /* Pods_InventarioSeguro.framework */,
+				B933ECD11A736328DF3C92E9 /* Pods_InventarioSeguro_InventarioSeguroUITests.framework */,
+				32C7BDED67D66A233E79C7F0 /* Pods_InventarioSeguroTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FCB000C71732A040E5268233 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A516503920DD88B679116678 /* Pods-InventarioSeguro.debug.xcconfig */,
+				3C5FFAF6B8E2D85E508F4AD9 /* Pods-InventarioSeguro.release.xcconfig */,
+				FB615289C7F46AC7B42E2D2C /* Pods-InventarioSeguro-InventarioSeguroUITests.debug.xcconfig */,
+				608D90DE16AF0E830BE88D86 /* Pods-InventarioSeguro-InventarioSeguroUITests.release.xcconfig */,
+				A29BEB63A5DAC47E3712AF99 /* Pods-InventarioSeguroTests.debug.xcconfig */,
+				AD11AD0768C9CB8CB81BF4CB /* Pods-InventarioSeguroTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,9 +202,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06B11E3A260AB032005D4DCC /* Build configuration list for PBXNativeTarget "InventarioSeguro" */;
 			buildPhases = (
+				1033414E1A4BDD65DAB9AABF /* [CP] Check Pods Manifest.lock */,
 				06B11E0C260AB031005D4DCC /* Sources */,
 				06B11E0D260AB031005D4DCC /* Frameworks */,
 				06B11E0E260AB031005D4DCC /* Resources */,
+				1AC886B4993BAD10803078C4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -176,6 +221,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06B11E3D260AB032005D4DCC /* Build configuration list for PBXNativeTarget "InventarioSeguroTests" */;
 			buildPhases = (
+				49F2CB188EC1CF9C2F41C34B /* [CP] Check Pods Manifest.lock */,
 				06B11E22260AB032005D4DCC /* Sources */,
 				06B11E23260AB032005D4DCC /* Frameworks */,
 				06B11E24260AB032005D4DCC /* Resources */,
@@ -194,9 +240,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06B11E40260AB032005D4DCC /* Build configuration list for PBXNativeTarget "InventarioSeguroUITests" */;
 			buildPhases = (
+				474B8CDC3DA530091FEB8ECA /* [CP] Check Pods Manifest.lock */,
 				06B11E2D260AB032005D4DCC /* Sources */,
 				06B11E2E260AB032005D4DCC /* Frameworks */,
 				06B11E2F260AB032005D4DCC /* Resources */,
+				0F4547BFC49A742E46175996 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -277,6 +325,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0F4547BFC49A742E46175996 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InventarioSeguro-InventarioSeguroUITests/Pods-InventarioSeguro-InventarioSeguroUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InventarioSeguro-InventarioSeguroUITests/Pods-InventarioSeguro-InventarioSeguroUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InventarioSeguro-InventarioSeguroUITests/Pods-InventarioSeguro-InventarioSeguroUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1033414E1A4BDD65DAB9AABF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InventarioSeguro-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1AC886B4993BAD10803078C4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InventarioSeguro/Pods-InventarioSeguro-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InventarioSeguro/Pods-InventarioSeguro-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InventarioSeguro/Pods-InventarioSeguro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		474B8CDC3DA530091FEB8ECA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InventarioSeguro-InventarioSeguroUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49F2CB188EC1CF9C2F41C34B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InventarioSeguroTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		06B11E0C260AB031005D4DCC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -288,6 +439,7 @@
 				C1A143802613D84C00B8EBC7 /* mostrarResultadosViewController.swift in Sources */,
 				364BAE4F2615551900A9504A /* ViewController.swift in Sources */,
 				36CF8012263796C1008C037F /* Rollo.swift in Sources */,
+				06DF2F862655BE100032FB0B /* ResultadosViewController.swift in Sources */,
 				363CCE062638A7E3006959E9 /* DBUsuarioHelper.swift in Sources */,
 				06B11E16260AB031005D4DCC /* SceneDelegate.swift in Sources */,
 				0B7E1A832638AFBC009355A7 /* DBRegistroHelper.swift in Sources */,
@@ -465,18 +617,19 @@
 		};
 		06B11E3B260AB032005D4DCC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A516503920DD88B679116678 /* Pods-InventarioSeguro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 823685848T;
+				DEVELOPMENT_TEAM = T79R94AWWV;
 				INFOPLIST_FILE = InventarioSeguro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "inventario-Seguro";
+				PRODUCT_BUNDLE_IDENTIFIER = "inventario-Seguro-Dev1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -486,18 +639,19 @@
 		};
 		06B11E3C260AB032005D4DCC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C5FFAF6B8E2D85E508F4AD9 /* Pods-InventarioSeguro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 823685848T;
+				DEVELOPMENT_TEAM = T79R94AWWV;
 				INFOPLIST_FILE = InventarioSeguro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "inventario-Seguro";
+				PRODUCT_BUNDLE_IDENTIFIER = "inventario-Seguro-Dev1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -507,6 +661,7 @@
 		};
 		06B11E3E260AB032005D4DCC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A29BEB63A5DAC47E3712AF99 /* Pods-InventarioSeguroTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -529,6 +684,7 @@
 		};
 		06B11E3F260AB032005D4DCC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD11AD0768C9CB8CB81BF4CB /* Pods-InventarioSeguroTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -551,6 +707,7 @@
 		};
 		06B11E41260AB032005D4DCC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB615289C7F46AC7B42E2D2C /* Pods-InventarioSeguro-InventarioSeguroUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -571,6 +728,7 @@
 		};
 		06B11E42260AB032005D4DCC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 608D90DE16AF0E830BE88D86 /* Pods-InventarioSeguro-InventarioSeguroUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

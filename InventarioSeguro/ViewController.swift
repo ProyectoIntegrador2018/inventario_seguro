@@ -9,48 +9,49 @@ import UIKit
 // Librerias para el reconocimiento de imagen
 import Vision
 import VisionKit
+import ImageSlideshow
 
 class ViewController: UIViewController {
-    // MARK: - Variables y Outlets
-    var db:DBRolloHelper = DBRolloHelper()
-    var rollos: [Rollo] = []
-    var dbU:DBUsuarioHelper = DBUsuarioHelper()
-    var usuarios: [Usuario] = []
-    var dbR:DBRegistroHelper = DBRegistroHelper()
-    var registros: [Registro] = []
+    //MARK: -Database helpers
+    var dbReg:DBRegistroHelper = DBRegistroHelper()
+    var dbRol:DBRolloHelper = DBRolloHelper()
     
+    // MARK: - Variables y Outlets
     @IBOutlet weak var botonGuardar: UIButton!
     @IBOutlet weak var botonScan: UIButton!
     //Resultado del recononocimiento de la imagen
     @IBOutlet weak var textViewResultado: UITextView!
     //Imagen tomada con la camra
     @IBOutlet weak var displayNameLabel: UILabel!
-    @IBOutlet weak var imageViewImagen: UIImageView!
+    @IBOutlet weak var imageViewImagen: ImageSlideshow!
+    
+    @IBOutlet weak var imageViewSlide: ImageSlideshow!
     // Variable para el manejo del reconocimiento del texto
     private var ocrRequest = VNRecognizeTextRequest(completionHandler: nil)
     var ocrText = ""
     var ocrTexts = Array(repeating:"", count: 4)
     var counter = 0;
-    var displayName:String = "";
-    
+    var displayUser: Usuario!
+    var imagesListArray = [ImageSource]()
     
     //MARK: - ViewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: animated);
+        imagesListArray.removeAll()
     }
     
     // MARK: - ViewDidLoad 
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayNameLabel.text = "Bienvenido "+displayName+", empieza a registrar";
+        displayNameLabel.text = "Bienvenido "+displayUser.nombre+", empieza a registrar";
         // Agrega el boton de done al teclado cuando se quiere editar el resultado
         addDoneBtn()
         // Configuración del reconocimiento de imagen
         configureOCR()
-        
-        objetoDummy()
+                
         
     }
+    
     // MARK: - Funcionalidad y settings
     // Función para el procesamiento de la imagen
     private func processImage(_ image: UIImage) {
@@ -67,6 +68,9 @@ class ViewController: UIViewController {
         }
     }
 
+    private func dummys(){
+        dbReg.insert(id: UUID().uuidString, idUsuario: displayUser.id, idRollos: "12345", ubicacion: "Mty", fecha: "23/05/21", accuracy: 80)
+    }
     /// Settings para el reconocimiento de imagen
     private func configureOCR() {
         ocrRequest = VNRecognizeTextRequest { (request, error) in
@@ -111,11 +115,21 @@ class ViewController: UIViewController {
         //let scannedOCR = self.textViewResultado?.text ?? ""
         let scannedOCR = self.ocrTexts
         resetVariables()
-        let destinationVC = segue.destination as! mostrarResultadosViewController
-        destinationVC.capturedText = scannedOCR
+        
+        if segue.destination is mostrarResultadosViewController {
+            let destinationVC = segue.destination as! mostrarResultadosViewController
+            destinationVC.capturedText = scannedOCR
+            destinationVC.usuario = self.displayUser
+        }
+        
+        if segue.destination is ResultadosViewController {
+            let destinationVC = segue.destination as! ResultadosViewController
+            let regs: [Registro] = dbReg.read_UID(uid: displayUser.id)
+            destinationVC.displayResults = regs
+        }
+        
         
     }
-    
     
     
 
@@ -147,33 +161,6 @@ class ViewController: UIViewController {
         }
         self.counter = 0
     }
-    
-    //Funcion para crear objeto dummy
-    func objetoDummy() {
-        db.insert(id: 1000, numeroIdent: "WASD38")
-        db.insert(id: 1001, numeroIdent: "QERF55")
-        rollos = db.read()
-        
-        for rollo in rollos {
-            print("id: ", rollo.id, "|| numeroIdent: ", rollo.numeroIdent)
-        }
-        
-        dbU.insert(id: 2000, nombre: "Meach Villareal", correo: "meach@gmail.com", cargo: "Animadora Digital")
-        dbU.insert(id: 2001, nombre: "Braix Hernandez", correo: "braix@gmail.com", cargo: "Doctor General")
-        usuarios = dbU.read()
-        
-        for usuario in usuarios {
-            print("id: ", usuario.id, "|| nombre: ", usuario.nombre, "|| correo: ", usuario.correo, "|| cargo: ", usuario.cargo)
-        }
-        
-        dbR.insert(id: 3000, idUsuario: 2000, idRollos: "1001", ubicacion: "Mty", fecha: "27/04/20")
-        dbR.insert(id: 3001, idUsuario: 2001, idRollos: "1000", ubicacion: "CDMX", fecha: "27/04/20")
-        registros = dbR.read()
-        
-        for registro in registros {
-            print("id: ", registro.id, "|| idUsuario: ", registro.idUsuario, "|| idRollo: ", registro.idRollos, "|| ubicacion: ", registro.ubicacion, "|| fecha: ", registro.fecha)
-        }
-    }
 }
 // MARK: - Controller de la camara
 /// Controller para la camara
@@ -185,14 +172,16 @@ extension ViewController: VNDocumentCameraViewControllerDelegate {
             return
         }
         var i = 0
+        
         while(i < scan.pageCount)
         {
             processImage(scan.imageOfPage(at: i))
+            let image = ImageSource(image:scan.imageOfPage(at: i))
+            imagesListArray.append(image)
             i+=1
         }
-       
-       
-        imageViewImagen.image = scan.imageOfPage(at: 0)
+        imageViewSlide.setImageInputs(imagesListArray)
+        //imageViewImagen.image = scan.imageOfPage(at: 0)
        
         /// Se termino de tomar fotos
         controller.dismiss(animated: true)
