@@ -55,18 +55,22 @@ class mostrarResultadosViewController: UIViewController {
             dataFromImage = true;
         }
         // Cambia los primeros 2 valores del campo 1
-        let endIndex0 = capturedText[0].index(capturedText[0].startIndex, offsetBy: 2)
-        capturedText[0].replaceSubrange(...endIndex0, with: "3B")
-        // Cambia los primeros 2 valores del campo 2
-        let endIndex1 = capturedText[1].index(capturedText[1].startIndex, offsetBy: 2)
-        capturedText[1].replaceSubrange(...endIndex1, with: "3B")
-        // Cambia los primeros 2 valores del campo 3
-        let endIndex2 = capturedText[2].index(capturedText[2].startIndex, offsetBy: 2)
-        capturedText[2].replaceSubrange(...endIndex2, with: "3B")
-        // Cambia los primeros 2 valores del campo 4
-        let endIndex3 = capturedText[3].index(capturedText[3].startIndex, offsetBy: 2)
-        capturedText[3].replaceSubrange(...endIndex3, with: "3B")
-        
+        if capturedText[0].count >= 2 {
+            let endIndex0 = capturedText[0].index(capturedText[0].startIndex, offsetBy: 1)
+            capturedText[0].replaceSubrange(...endIndex0, with: "3B")
+        }
+        if capturedText[1].count >= 2 {
+            let endIndex1 = capturedText[1].index(capturedText[1].startIndex, offsetBy: 1)
+            capturedText[1].replaceSubrange(...endIndex1, with: "3B")
+        }
+        if capturedText[0].count >= 2 {
+            let endIndex2 = capturedText[2].index(capturedText[2].startIndex, offsetBy: 1)
+            capturedText[2].replaceSubrange(...endIndex2, with: "3B")
+        }
+        if capturedText[0].count >= 2 {
+            let endIndex3 = capturedText[3].index(capturedText[3].startIndex, offsetBy: 1)
+            capturedText[3].replaceSubrange(...endIndex3, with: "3B")
+        }
         rolloCode.text = capturedText[0]
         rolloCode2.text = capturedText[1]
         rolloCode3.text = capturedText[2]
