@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Variables y OutletsS
     var dbU: DBUsuarioHelper = DBUsuarioHelper()
@@ -24,6 +24,10 @@ class LoginViewController: UIViewController {
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.userTField.delegate = self;
+        self.pwdTField.delegate = self;
+        
         createDummyUsers()
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing));
         view.addGestureRecognizer(tap);
@@ -79,14 +83,21 @@ func displayErrorMessage() {
         
     }
     
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("here");
+        switch textField {
+        case self.userTField:
+            self.pwdTField.becomeFirstResponder();
+        default:
+            self.view.endEditing(true)
+            self.doLogin(textField);
+        }
+        return true;
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! ViewController
         destinationVC.displayUser = self.usuario;
     }
-    
-    
-    
-    
-    
-    
 }
